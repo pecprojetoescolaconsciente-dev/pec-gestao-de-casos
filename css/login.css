@@ -1,0 +1,473 @@
+/* =========================================================
+   PEC - GESTÃO DE CASOS
+   Tela de Login
+   ========================================================= */
+
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+}
+
+
+/* =========================================================
+   Área institucional
+   ========================================================= */
+
+.login-intro {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 100vh;
+
+    padding: 64px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #edf4f8 0%,
+            #f7faf9 52%,
+            #fff8e9 100%
+        );
+}
+
+.login-intro-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 570px;
+
+    margin: 0 auto;
+}
+
+.login-brand {
+    width: 280px;
+    margin-bottom: 72px;
+}
+
+.intro-label {
+    display: inline-flex;
+
+    margin-bottom: 18px;
+
+    padding: 8px 13px;
+
+    border-radius: 999px;
+
+    background: rgba(22, 59, 97, 0.08);
+
+    color: var(--pec-primary);
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.intro-text h1 {
+    max-width: 520px;
+
+    margin: 0 0 20px;
+
+    font-size: clamp(2.5rem, 4vw, 4.2rem);
+    line-height: 1.03;
+
+    letter-spacing: -0.045em;
+
+    color: var(--pec-primary-dark);
+}
+
+.intro-text p {
+    max-width: 500px;
+
+    margin: 0;
+
+    color: var(--pec-text-secondary);
+
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   Decorações suaves
+   ========================================================= */
+
+.intro-decoration {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.decoration-one {
+    width: 320px;
+    height: 320px;
+
+    right: -110px;
+    top: -100px;
+
+    background:
+        rgba(242, 189, 69, 0.12);
+}
+
+.decoration-two {
+    width: 430px;
+    height: 430px;
+
+    left: -210px;
+    bottom: -260px;
+
+    background:
+        rgba(22, 59, 97, 0.06);
+}
+
+
+/* =========================================================
+   Área de autenticação
+   ========================================================= */
+
+.login-area {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 48px;
+
+    background: var(--pec-surface);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+}
+
+.login-header {
+    margin-bottom: 34px;
+}
+
+.login-mobile-label {
+    display: none;
+
+    margin-bottom: 18px;
+
+    color: var(--pec-primary);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.login-header h2 {
+    margin: 0 0 9px;
+
+    color: var(--pec-text);
+
+    font-size: 2rem;
+    letter-spacing: -0.035em;
+}
+
+.login-header p {
+    margin: 0;
+
+    color: var(--pec-text-secondary);
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   Formulário
+   ========================================================= */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--pec-text);
+
+    font-size: 0.9rem;
+    font-weight: 650;
+}
+
+.form-group input {
+    width: 100%;
+    height: 54px;
+
+    padding: 0 16px;
+
+    border: 1px solid var(--pec-border);
+    border-radius: var(--pec-radius-sm);
+
+    background: #fbfcfc;
+
+    color: var(--pec-text);
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #a1adb6;
+}
+
+.form-group input:focus {
+    border-color: rgba(22, 59, 97, 0.55);
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(22, 59, 97, 0.08);
+}
+
+.password-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-link {
+    padding: 4px 0;
+
+    border: 0;
+    background: transparent;
+
+    color: var(--pec-primary);
+
+    font-size: 0.82rem;
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   Botão principal
+   ========================================================= */
+
+.login-button {
+    width: 100%;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 8px;
+
+    border: 0;
+    border-radius: var(--pec-radius-sm);
+
+    background: var(--pec-primary);
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.15s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-button:hover {
+    background: var(--pec-primary-dark);
+
+    box-shadow:
+        0 10px 30px rgba(22, 59, 97, 0.18);
+}
+
+.login-button:active {
+    transform: translateY(1px);
+}
+
+.login-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   Recuperação
+   ========================================================= */
+
+.forgot-password {
+    width: 100%;
+
+    margin-top: 17px;
+
+    padding: 8px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--pec-primary);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   Mensagens
+   ========================================================= */
+
+.login-message {
+    display: none;
+
+    margin-bottom: 18px;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.login-message.error {
+    display: block;
+
+    background: #fff2f2;
+
+    color: #963f3f;
+
+    border: 1px solid #f0d2d2;
+}
+
+.login-message.success {
+    display: block;
+
+    background: #eef8f4;
+
+    color: #327461;
+
+    border: 1px solid #d2ebe2;
+}
+
+
+/* =========================================================
+   Segurança
+   ========================================================= */
+
+.login-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: 38px;
+
+    color: var(--pec-text-secondary);
+
+    font-size: 0.78rem;
+}
+
+.security-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--pec-success);
+}
+
+
+/* =========================================================
+   Loading
+   ========================================================= */
+
+.spinner {
+    width: 17px;
+    height: 17px;
+
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #ffffff;
+
+    border-radius: 50%;
+
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   Tablet / celular
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .login-page {
+        display: block;
+    }
+
+    .login-intro {
+        display: none;
+    }
+
+    .login-area {
+        min-height: 100vh;
+
+        padding: 30px 22px;
+
+        background:
+            linear-gradient(
+                180deg,
+                #edf4f8 0%,
+                #ffffff 33%
+            );
+    }
+
+    .login-card {
+        max-width: 460px;
+    }
+
+    .login-mobile-label {
+        display: block;
+    }
+
+    .login-header h2 {
+        font-size: 1.8rem;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .login-area {
+        align-items: flex-start;
+
+        padding-top: 72px;
+    }
+
+    .form-group input,
+    .login-button {
+        height: 56px;
+    }
+
+}

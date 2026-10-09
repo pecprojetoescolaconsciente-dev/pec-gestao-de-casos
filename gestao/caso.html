@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Caso | PEC</title>
+
+
+    <!-- =====================================================
+         CSS BASE
+         ===================================================== -->
+
+    <link rel="stylesheet" href="../css/base.css">
+
+    <link rel="stylesheet" href="../css/dashboard-gestao.css">
+
+
+    <!-- =====================================================
+         CSS DA PÁGINA DO CASO
+         ===================================================== -->
+
+    <link rel="stylesheet" href="../css/caso-gestao.css">
+
+
+    <!-- =====================================================
+         CSS DA ETAPA TRIAGEM
+         ===================================================== -->
+
+    <link rel="stylesheet" href="../css/etapas/triagem.css">
+
+    <link rel="stylesheet" href="../css/etapas/levantamento.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="management-layout">
+
+
+        <!-- =====================================================
+             SIDEBAR
+             ===================================================== -->
+
+        <aside class="management-sidebar">
+
+
+            <div class="management-sidebar-top">
+
+
+                <a href="./dashboard.html" class="management-logo">
+
+                    <img src="../assets/img/logo-pec-h.png" alt="PEC">
+
+                </a>
+
+
+                <nav class="management-nav">
+
+
+                    <a href="./dashboard.html" class="management-nav-item">
+
+                        <span class="management-nav-icon">
+                            ◫
+                        </span>
+
+                        <span>
+                            Visão geral
+                        </span>
+
+                    </a>
+
+
+                    <a href="./casos.html" class="management-nav-item active">
+
+                        <span class="management-nav-icon">
+                            ▤
+                        </span>
+
+                        <span>
+                            Casos
+                        </span>
+
+                    </a>
+
+
+                </nav>
+
+
+            </div>
+
+
+            <div class="management-sidebar-bottom">
+
+
+                <div class="management-profile">
+
+
+                    <div class="management-profile-avatar" id="managementProfileAvatar">
+                        G
+                    </div>
+
+
+                    <div class="management-profile-info">
+
+                        <strong id="managementProfileName">
+                            Carregando...
+                        </strong>
+
+                        <span id="managementProfileRole">
+                            Gestão
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <button type="button" class="management-logout-button" id="logoutButton">
+                    Sair
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =====================================================
+             CONTEÚDO PRINCIPAL
+             ===================================================== -->
+
+        <main class="case-page">
+
+
+            <!-- =================================================
+                 CARREGAMENTO
+                 ================================================= -->
+
+            <section class="case-page-loading" id="casePageLoading">
+
+                <div class="case-page-loading-spinner"></div>
+
+                <span>
+                    Carregando caso...
+                </span>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CONTEÚDO DO CASO
+                 ================================================= -->
+
+            <div id="casePageContent" hidden>
+
+
+                <!-- =============================================
+                     VOLTAR
+                     ============================================= -->
+
+                <a href="./casos.html" class="case-back-link">
+                    ← Voltar para casos
+                </a>
+
+
+
+                <!-- =============================================
+                     CABEÇALHO
+                     ============================================= -->
+
+                <header class="case-header">
+
+
+                    <div class="case-header-main">
+
+
+                        <span class="case-eyebrow">
+                            Caso
+                        </span>
+
+
+                        <div class="case-title-row">
+
+
+                            <h1 id="caseNumber">
+                                —
+                            </h1>
+
+
+                            <span class="case-badge case-badge-stage" id="caseStageBadge">
+                                —
+                            </span>
+
+
+                            <span class="case-badge case-badge-attention" id="caseAttentionBadge" hidden>
+                                —
+                            </span>
+
+
+                        </div>
+
+
+                        <p class="case-header-meta" id="caseOpeningInfo">
+                            —
+                        </p>
+
+
+                    </div>
+
+
+                </header>
+
+
+
+                <!-- =============================================
+                     ALERTA DE RISCO DO REGISTRO INICIAL
+                     ============================================= -->
+
+                <section class="case-risk-alert" id="caseInitialRiskAlert" hidden>
+
+                    <div class="case-risk-alert-icon">
+                        !
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Indicação de risco imediato no registro inicial
+                        </strong>
+
+                        <p>
+                            A informação foi sinalizada no momento do registro e deve ser considerada pela Gestão durante a triagem.
+                        </p>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =============================================
+                     FLUXO DO CASO
+                     ============================================= -->
+
+                <section class="case-flow-panel">
+
+
+                    <div class="case-flow-heading">
+
+                        <span class="case-eyebrow">
+                            Fluxo do caso
+                        </span>
+
+                    </div>
+
+
+                    <div class="case-flow">
+
+
+                        <div class="case-flow-step" data-stage="denuncia">
+
+                            <span class="case-flow-marker">
+                                1
+                            </span>
+
+                            <strong>
+                                Caso
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-flow-step" data-stage="triagem">
+
+                            <span class="case-flow-marker">
+                                2
+                            </span>
+
+                            <strong>
+                                Triagem
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-flow-step" data-stage="levantamento">
+
+                            <span class="case-flow-marker">
+                                3
+                            </span>
+
+                            <strong>
+                                Levantamento
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-flow-step" data-stage="analise">
+
+                            <span class="case-flow-marker">
+                                4
+                            </span>
+
+                            <strong>
+                                Análise
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-flow-step" data-stage="classificacao">
+
+                            <span class="case-flow-marker">
+                                5
+                            </span>
+
+                            <strong>
+                                Classificação
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-flow-step" data-stage="intervencao">
+
+                            <span class="case-flow-marker">
+                                6
+                            </span>
+
+                            <strong>
+                                Intervenção
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-flow-step" data-stage="monitoramento">
+
+                            <span class="case-flow-marker">
+                                7
+                            </span>
+
+                            <strong>
+                                Monitoramento
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-flow-step" data-stage="reavaliacao">
+
+                            <span class="case-flow-marker">
+                                8
+                            </span>
+
+                            <strong>
+                                Reavaliação
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-flow-step" data-stage="encerramento">
+
+                            <span class="case-flow-marker">
+                                9
+                            </span>
+
+                            <strong>
+                                Encerramento
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     ETAPA 1 - CASO
+                     ================================================= -->
+
+                <section class="case-stage" id="caseInitialStage" hidden>
+
+
+                    <!-- =============================================
+                         TÍTULO DA ETAPA
+                         ============================================= -->
+
+                    <header class="case-stage-header">
+
+
+                        <div>
+
+                            <span class="case-eyebrow">
+                                Registro inicial
+                            </span>
+
+                            <h2>
+                                Informações do caso
+                            </h2>
+
+                            <p>
+                                Consulte o registro original antes de iniciar a análise pela Gestão.
+                            </p>
+
+                        </div>
+
+
+                    </header>
+
+
+
+                    <!-- =============================================
+                         RESUMO
+                         ============================================= -->
+
+                    <section class="case-panel">
+
+
+                        <header class="case-panel-header">
+
+                            <div>
+
+                                <span class="case-eyebrow">
+                                    Identificação
+                                </span>
+
+                                <h3>
+                                    Resumo do caso
+                                </h3>
+
+                            </div>
+
+                        </header>
+
+
+                        <div class="case-summary-grid">
+
+
+                            <div class="case-summary-item">
+
+                                <span>
+                                    Data da ocorrência
+                                </span>
+
+                                <strong id="caseOccurrenceDate">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="case-summary-item">
+
+                                <span>
+                                    Ambiente
+                                </span>
+
+                                <strong id="caseEnvironment">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="case-summary-item">
+
+                                <span>
+                                    Modalidade
+                                </span>
+
+                                <strong id="caseEnvironmentType">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="case-summary-item">
+
+                                <span>
+                                    Origem
+                                </span>
+
+                                <strong id="caseOrigin">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="case-summary-item">
+
+                                <span>
+                                    Quem comunicou
+                                </span>
+
+                                <strong id="caseCommunicator">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="case-summary-item">
+
+                                <span>
+                                    Evidências iniciais
+                                </span>
+
+                                <strong id="caseInitialEvidence">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </section>
+
+
+
+                    <!-- =============================================
+                         ENVOLVIDOS
+                         ============================================= -->
+
+                    <section class="case-panel">
+
+
+                        <header class="case-panel-header">
+
+                            <div>
+
+                                <span class="case-eyebrow">
+                                    Pessoas
+                                </span>
+
+                                <h3>
+                                    Envolvidos
+                                </h3>
+
+                            </div>
+
+                        </header>
+
+
+                        <div class="case-participants-grid" id="caseParticipants">
+
+                            <div class="case-empty-state">
+                                Carregando participantes...
+                            </div>
+
+                        </div>
+
+
+                    </section>
+
+
+
+                    <!-- =============================================
+                         RELATO INICIAL
+                         ============================================= -->
+
+                    <section class="case-panel">
+
+
+                        <header class="case-panel-header">
+
+
+                            <div>
+
+                                <span class="case-eyebrow">
+                                    Registro original
+                                </span>
+
+                                <h3>
+                                    Relato inicial
+                                </h3>
+
+                            </div>
+
+
+                            <span class="case-readonly-badge">
+                                Somente leitura
+                            </span>
+
+
+                        </header>
+
+
+                        <div class="case-report" id="caseInitialReport">
+                            —
+                        </div>
+
+
+                    </section>
+
+
+
+                    <!-- =============================================
+                         EVIDÊNCIAS INICIAIS
+                         ============================================= -->
+
+                    <section class="case-panel">
+
+
+                        <header class="case-panel-header">
+
+                            <div>
+
+                                <span class="case-eyebrow">
+                                    Documentos
+                                </span>
+
+                                <h3>
+                                    Evidências iniciais
+                                </h3>
+
+                            </div>
+
+                        </header>
+
+
+                        <div class="case-document-grid" id="caseInitialDocuments">
+
+                            <div class="case-empty-state">
+                                Carregando evidências...
+                            </div>
+
+                        </div>
+
+
+                    </section>
+
+
+
+                    <!-- =============================================
+                         INICIAR TRIAGEM
+                         ============================================= -->
+
+                    <section class="case-next-stage">
+
+
+                        <div class="case-next-stage-content">
+
+                            <span class="case-eyebrow">
+                                Próxima etapa
+                            </span>
+
+                            <h3>
+                                Triagem
+                            </h3>
+
+                            <p>
+                                Defina o responsável pelo caso e inicie a avaliação de risco e proteção imediata.
+                            </p>
+
+                        </div>
+
+
+                        <button type="button" class="case-primary-button" id="startTriageButton">
+                            Iniciar triagem
+                            <span aria-hidden="true">
+                                →
+                            </span>
+                        </button>
+
+
+                    </section>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     ETAPA 2 - TRIAGEM
+                     ================================================= -->
+
+                <section class="case-stage triage-stage" id="triageStage" hidden>
+
+
+                    <!-- =============================================
+                         CABEÇALHO DA ETAPA
+                         ============================================= -->
+
+                    <header class="case-stage-header triage-stage-header">
+
+
+                        <div>
+
+                            <span class="case-eyebrow">
+                                Etapa 2
+                            </span>
+
+                            <h2>
+                                Triagem
+                            </h2>
+
+                            <p>
+                                Avalie a existência de risco ou necessidade de proteção imediata e registre as decisões desta etapa.
+                            </p>
+
+                        </div>
+
+
+                        <span class="triage-stage-status">
+                            Em andamento
+                        </span>
+
+
+                    </header>
+
+
+
+                    <form id="triageForm">
+
+
+                        <!-- =========================================
+                             CONTEXTO DA TRIAGEM
+                             ========================================= -->
+
+                        <section class="triage-context">
+
+
+                            <!-- =====================================
+                                 RESPONSÁVEL
+                                 ===================================== -->
+
+                            <div class="triage-context-owner">
+
+
+                                <div class="triage-owner-avatar" id="triageOwnerAvatar">
+                                    G
+                                </div>
+
+
+                                <div class="triage-owner-info">
+
+                                    <span class="triage-label">
+                                        Responsável
+                                    </span>
+
+                                    <strong id="triageOwnerName">
+                                        —
+                                    </strong>
+
+                                    <small id="triageOwnerRole">
+                                        —
+                                    </small>
+
+
+                                    <button type="button" class="triage-link-button" id="changeTriageOwnerButton">
+                                        Alterar responsável
+                                    </button>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <!-- =====================================
+                                 RISCO IMEDIATO
+                                 ===================================== -->
+
+                            <div class="triage-context-control">
+
+
+                                <span class="triage-label">
+                                    Risco imediato
+                                </span>
+
+
+                                <div class="triage-segmented" role="radiogroup" aria-label="Há risco ou necessidade de proteção imediata?">
+
+
+                                    <label class="triage-segmented-option">
+
+                                        <input type="radio" name="triageImmediateRisk" value="true">
+
+                                        <span>
+                                            Sim
+                                        </span>
+
+                                    </label>
+
+
+                                    <label class="triage-segmented-option">
+
+                                        <input type="radio" name="triageImmediateRisk" value="false">
+
+                                        <span>
+                                            Não
+                                        </span>
+
+                                    </label>
+
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <!-- =====================================
+                                 NÍVEL DE ATENÇÃO
+                                 ===================================== -->
+
+                            <div class="triage-context-control">
+
+
+                                <label class="triage-label" for="triageAttentionLevel">
+                                    Nível de atenção
+                                </label>
+
+
+                                <select id="triageAttentionLevel">
+
+                                    <option value="">
+                                        Selecione
+                                    </option>
+
+                                    <option value="Baixo">
+                                        Baixo
+                                    </option>
+
+                                    <option value="Médio">
+                                        Médio
+                                    </option>
+
+                                    <option value="Alto">
+                                        Alto
+                                    </option>
+
+                                    <option value="Urgente">
+                                        Urgente
+                                    </option>
+
+                                </select>
+
+
+                            </div>
+
+
+                        </section>
+
+
+
+                        <!-- =========================================
+                             FATORES IDENTIFICADOS
+                             ========================================= -->
+
+                        <section class="triage-section">
+
+
+                            <header class="triage-section-header">
+
+                                <div>
+
+                                    <h3>
+                                        Fatores identificados
+                                    </h3>
+
+                                    <p>
+                                        Selecione todos os fatores observados nesta avaliação.
+                                    </p>
+
+                                </div>
+
+                            </header>
+
+
+                            <div class="triage-field triage-field-medium">
+
+
+                                <label for="triageRiskFactorsSelect">
+                                    Adicionar fator
+                                </label>
+
+
+                                <select id="triageRiskFactorsSelect">
+
+                                    <option value="">
+                                        Selecione um fator
+                                    </option>
+
+                                    <option value="Ameaça grave">
+                                        Ameaça grave
+                                    </option>
+
+                                    <option value="Risco à integridade física">
+                                        Risco à integridade física
+                                    </option>
+
+                                    <option value="Lesão">
+                                        Lesão
+                                    </option>
+
+                                    <option value="Ameaça de morte">
+                                        Ameaça de morte
+                                    </option>
+
+                                    <option value="Sofrimento psicológico evidente">
+                                        Sofrimento psicológico evidente
+                                    </option>
+
+                                    <option value="Automutilação">
+                                        Automutilação
+                                    </option>
+
+                                    <option value="Ideação suicida">
+                                        Ideação suicida
+                                    </option>
+
+                                    <option value="Violência sexual">
+                                        Violência sexual
+                                    </option>
+
+                                    <option value="Exposição digital grave">
+                                        Exposição digital grave
+                                    </option>
+
+                                    <option value="Situação envolvendo grupo">
+                                        Situação envolvendo grupo
+                                    </option>
+
+                                    <option value="Reincidência">
+                                        Reincidência
+                                    </option>
+
+                                    <option value="Outro fator de risco">
+                                        Outro fator de risco
+                                    </option>
+
+                                </select>
+
+
+                                <div class="triage-tags" id="triageRiskFactorsTags" aria-live="polite"></div>
+
+
+                                <div class="triage-conditional-field" id="triageRiskFactorOtherWrap" hidden>
+
+
+                                    <label for="triageRiskFactorOther">
+                                        Qual outro fator?
+                                    </label>
+
+
+                                    <div class="triage-other-factor-entry">
+
+                                        <input type="text" id="triageRiskFactorOther" maxlength="150" placeholder="Ex.: facada, soco, agressão com objeto">
+
+                                        <button type="button" class="triage-secondary-button" id="triageRiskFactorOtherAddButton">
+                                            Adicionar
+                                        </button>
+
+                                    </div>
+
+
+                                    <div class="triage-tags" id="triageRiskFactorOtherTags" aria-live="polite"></div>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </section>
+
+
+
+                        <!-- =========================================
+                             REGISTRO TÉCNICO
+                             ========================================= -->
+
+                        <section class="triage-section">
+
+
+                            <header class="triage-section-header">
+
+                                <div>
+
+                                    <h3>
+                                        Registro técnico
+                                    </h3>
+
+                                    <p>
+                                        Registre a avaliação realizada pela Gestão e informações complementares.
+                                    </p>
+
+                                </div>
+
+                            </header>
+
+
+                            <div class="triage-technical-grid">
+
+
+                                <!-- =================================
+                                     AVALIAÇÃO DO GESTOR
+                                     ================================= -->
+
+                                <div class="triage-field">
+
+                                    <label for="triageAssessment">
+                                        Avaliação do gestor
+                                        <span class="triage-required">
+                                            *
+                                        </span>
+                                    </label>
+
+                                    <textarea id="triageAssessment" rows="5" maxlength="3000" placeholder="Registre a avaliação técnica realizada nesta etapa."></textarea>
+
+                                </div>
+
+
+
+                                <!-- =================================
+                                     OBSERVAÇÕES
+                                     ================================= -->
+
+                                <div class="triage-field">
+
+                                    <label for="triageObservations">
+                                        Observações
+                                    </label>
+
+                                    <textarea id="triageObservations" rows="5" maxlength="3000" placeholder="Inclua informações complementares, se necessário."></textarea>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </section>
+
+
+
+                        <!-- =========================================
+                             AÇÕES DA ETAPA
+                             ========================================= -->
+
+                        <section class="triage-section">
+
+
+                            <header class="triage-section-header">
+
+                                <div>
+
+                                    <h3>
+                                        Ações desta etapa
+                                    </h3>
+
+                                    <p>
+                                        Registre somente providências e encaminhamentos relacionados à triagem.
+                                    </p>
+
+                                </div>
+
+                            </header>
+
+
+                            <div class="triage-actions-grid">
+
+
+                                <!-- =================================
+                                     PROVIDÊNCIAS
+                                     ================================= -->
+
+                                <div class="triage-field">
+
+
+                                    <label for="triageActionsSelect">
+                                        Providências imediatas
+                                    </label>
+
+
+                                    <select id="triageActionsSelect">
+
+                                        <option value="">
+                                            Selecione uma providência
+                                        </option>
+
+                                        <option value="Medida de proteção imediata">
+                                            Medida de proteção imediata
+                                        </option>
+
+                                        <option value="Acionamento da gestão escolar">
+                                            Acionamento da gestão escolar
+                                        </option>
+
+                                        <option value="Preservação de documentos ou evidências">
+                                            Preservação de documentos ou evidências
+                                        </option>
+
+                                        <option value="Outra providência">
+                                            Outra providência
+                                        </option>
+
+                                    </select>
+
+
+                                    <div class="triage-tags" id="triageActionsTags" aria-live="polite"></div>
+
+
+                                    <div class="triage-conditional-field" id="triageActionsOtherWrap" hidden>
+
+                                        <label for="triageActionsOther">
+                                            Descreva a outra providência
+                                        </label>
+
+                                        <div class="triage-other-factor-entry">
+
+                                            <input type="text" id="triageActionsOther" maxlength="500" placeholder="Descreva brevemente">
+
+                                            <button type="button" class="triage-secondary-button" id="triageActionsOtherAddButton">
+                                                Adicionar
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                                <!-- =================================
+                                     ENCAMINHAMENTOS
+                                     ================================= -->
+
+                                <div class="triage-field">
+
+
+                                    <label for="triageReferralsSelect">
+                                        Encaminhamentos imediatos
+                                    </label>
+
+
+                                    <select id="triageReferralsSelect">
+
+                                        <option value="">
+                                            Selecione um encaminhamento
+                                        </option>
+
+                                        <option value="Rede ou serviço de proteção">
+                                            Rede ou serviço de proteção
+                                        </option>
+
+                                        <option value="Nenhum encaminhamento neste momento">
+                                            Nenhum encaminhamento neste momento
+                                        </option>
+
+                                        <option value="Outro encaminhamento">
+                                            Outro encaminhamento
+                                        </option>
+
+                                    </select>
+
+
+                                    <div class="triage-tags" id="triageReferralsTags" aria-live="polite"></div>
+
+
+                                    <div class="triage-conditional-field" id="triageReferralsOtherWrap" hidden>
+
+                                        <label for="triageReferralsOther">
+                                            Descreva o outro encaminhamento
+                                        </label>
+
+                                        <div class="triage-other-factor-entry">
+
+                                            <input type="text" id="triageReferralsOther" maxlength="500" placeholder="Descreva brevemente">
+
+                                            <button type="button" class="triage-secondary-button" id="triageReferralsOtherAddButton">
+                                                Adicionar
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </section>
+
+
+
+                        <!-- =========================================
+                             DOCUMENTOS E PRAZO
+                             ========================================= -->
+
+                        <section class="triage-section">
+
+
+                            <header class="triage-section-header">
+
+                                <div>
+
+                                    <h3>
+                                        Documentos e prazo
+                                    </h3>
+
+                                    <p>
+                                        Anexe registros produzidos nesta etapa e informe o prazo para continuidade.
+                                    </p>
+
+                                </div>
+
+                            </header>
+
+
+                            <div class="triage-support-grid">
+
+
+                                <!-- =================================
+                                     DOCUMENTOS
+                                     ================================= -->
+
+                                <div class="triage-field">
+
+
+                                    <span class="triage-field-label">
+                                        Documentos e evidências da triagem
+                                    </span>
+
+
+                                    <div class="triage-upload-area">
+
+
+                                        <input type="file" id="triageEvidenceInput" accept=".jpg,.jpeg,.png,.webp,.pdf,.doc,.docx,.mp3,.m4a,.wav,.ogg" hidden>
+
+
+                                        <button type="button" class="triage-secondary-button" id="triageEvidenceButton">
+                                            + Anexar arquivo
+                                        </button>
+
+
+                                        <span class="triage-upload-help">
+                                            Até 10 MB por arquivo
+                                        </span>
+
+
+                                    </div>
+
+                                    <div class="triage-document-list" id="triageSavedEvidenceList"></div>
+
+                                    <div class="triage-document-list" id="triageEvidenceList"></div>
+
+
+                                    <div class="triage-inline-message" id="triageEvidenceMessage" aria-live="polite">
+                                    </div>
+
+
+                                </div>
+
+
+
+                                <!-- =================================
+                                     PRAZO
+                                     ================================= -->
+
+                                <div class="triage-field triage-deadline-field">
+
+
+                                    <label for="triageDeadline">
+                                        Prazo para continuidade
+                                        <span class="triage-required">
+                                            *
+                                        </span>
+                                    </label>
+
+
+                                    <input type="date" id="triageDeadline">
+
+
+                                    <small>
+                                        Ao concluir, o caso seguirá para
+                                        Levantamento Inicial.
+                                    </small>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </section>
+
+
+
+                        <!-- =========================================
+                             MENSAGEM
+                             ========================================= -->
+
+                        <div class="triage-form-message" id="triageFormMessage" aria-live="polite"></div>
+
+
+
+                        <!-- =========================================
+                             RODAPÉ
+                             ========================================= -->
+
+                        <footer class="triage-form-footer">
+
+
+                            <div class="triage-form-footer-info">
+
+                                <strong>
+                                    Próxima etapa
+                                </strong>
+
+                                <span>
+                                    Levantamento Inicial
+                                </span>
+
+                            </div>
+
+
+                            <button type="submit" class="triage-primary-button" id="triageSubmitButton">
+
+                                <span id="triageSubmitText">
+                                    Concluir triagem e iniciar levantamento
+                                </span>
+
+                                <span id="triageSubmitLoading" hidden>
+                                    Salvando...
+                                </span>
+
+                                <span id="triageSubmitArrow" aria-hidden="true">
+                                    →
+                                </span>
+
+                            </button>
+
+
+                        </footer>
+
+
+                    </form>
+
+
+                </section>
+
+
+                <!-- =================================================
+     ETAPA 3 - LEVANTAMENTO INICIAL
+     ================================================= -->
+
+                <section class="case-stage levantamento-stage" id="levantamentoStage" hidden>
+
+                    <!-- =============================================
+         CABEÇALHO DA ETAPA
+         ============================================= -->
+
+                    <header class="case-stage-header">
+
+                        <div>
+
+                            <span class="case-eyebrow">
+                                Etapa 3
+                            </span>
+
+                            <h2>
+                                Levantamento Inicial de Informações
+                            </h2>
+
+                            <p>
+                                Registre as informações necessárias para compreender a situação antes da análise técnica do caso.
+                            </p>
+
+                        </div>
+
+                    </header>
+
+
+                    <!-- =============================================
+         ESCUTA QUALIFICADA
+         ============================================= -->
+
+                    <section class="case-panel">
+
+                        <header class="case-panel-header">
+
+                            <div>
+
+                                <span class="case-eyebrow">
+                                    Escuta qualificada
+                                </span>
+
+                                <h3>
+                                    Sequência de escutas
+                                </h3>
+
+                            </div>
+
+                        </header>
+
+
+                        <div class="levantamento-sequence">
+
+                            <button type="button" class="levantamento-sequence-item active">
+
+                                <span class="levantamento-sequence-number">
+                                    1
+                                </span>
+
+                                <span class="levantamento-sequence-content">
+
+                                    <strong>
+                                        Possível vítima
+                                    </strong>
+
+                                    <small>
+                                        Primeira escuta obrigatória
+                                    </small>
+
+                                </span>
+
+                                <span class="levantamento-sequence-status">
+                                    Em andamento
+                                </span>
+
+                            </button>
+
+
+                            <button type="button" class="levantamento-sequence-item" disabled>
+
+                                <span class="levantamento-sequence-number">
+                                    2
+                                </span>
+
+                                <span class="levantamento-sequence-content">
+
+                                    <strong>
+                                        Possível autor
+                                    </strong>
+
+                                    <small>
+                                        Liberada após a escuta da vítima
+                                    </small>
+
+                                </span>
+
+                                <span class="levantamento-sequence-status">
+                                    Pendente
+                                </span>
+
+                            </button>
+
+
+                            <button type="button" class="levantamento-sequence-item" disabled>
+
+                                <span class="levantamento-sequence-number">
+                                    3
+                                </span>
+
+                                <span class="levantamento-sequence-content">
+
+                                    <strong>
+                                        Testemunhas
+                                    </strong>
+
+                                    <small>
+                                        Liberada após a escuta do autor
+                                    </small>
+
+                                </span>
+
+                                <span class="levantamento-sequence-status">
+                                    Pendente
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <!-- =================================================
+     ESCUTA 1 - POSSÍVEL VÍTIMA
+     ================================================= -->
+
+                        <section class="levantamento-listening" id="levantamentoVictimListening">
+
+                            <header class="levantamento-listening-header">
+
+                                <div>
+
+                                    <span class="case-eyebrow">
+                                        1ª escuta
+                                    </span>
+
+                                    <h3>
+                                        Escuta da possível vítima
+                                    </h3>
+
+                                    <p>
+                                        Registre a escuta de forma objetiva, preservando o relato e as informações relevantes para a análise.
+                                    </p>
+
+                                </div>
+
+                            </header>
+
+
+                            <div class="levantamento-listening-meta">
+
+                                <div class="levantamento-field">
+
+                                    <label for="levantamentoVictimParticipant">
+                                        Participante
+                                    </label>
+
+                                    <select id="levantamentoVictimParticipant">
+
+                                        <option value="">
+                                            Selecione a possível vítima
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="levantamento-field">
+
+                                    <label for="levantamentoVictimDate">
+                                        Data
+                                    </label>
+
+                                    <input type="date" id="levantamentoVictimDate">
+
+                                </div>
+
+
+                                <div class="levantamento-field">
+
+                                    <label for="levantamentoVictimTime">
+                                        Horário
+                                    </label>
+
+                                    <input type="time" id="levantamentoVictimTime">
+
+                                </div>
+
+
+                                <div class="levantamento-field">
+
+                                    <label>
+                                        Responsável pela escuta
+                                    </label>
+
+                                    <div class="levantamento-responsible" id="levantamentoVictimResponsible">
+                                        —
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- =================================================
+     ROTEIRO DE APOIO À ESCUTA
+     ================================================= -->
+
+                            <div class="levantamento-guide">
+
+                                <div class="levantamento-guide-header">
+
+                                    <span class="levantamento-guide-icon">
+                                        i
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            Roteiro de apoio à escuta
+                                        </strong>
+
+                                        <small>
+                                            Utilize estas perguntas como referência. Não é necessário seguir a ordem
+                                            rigidamente.
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+
+                                <ul class="levantamento-guide-list">
+
+                                    <li>
+                                        Conte com suas palavras o que aconteceu.
+                                    </li>
+
+                                    <li>
+                                        Isso já aconteceu outras vezes?
+                                    </li>
+
+                                    <li>
+                                        Com que frequência isso costuma acontecer?
+                                    </li>
+
+                                    <li>
+                                        Há quanto tempo essa situação vem acontecendo?
+                                    </li>
+
+                                    <li>
+                                        Onde essas situações costumam ocorrer?
+                                    </li>
+
+                                    <li>
+                                        Quem costuma estar presente?
+                                    </li>
+
+                                    <li>
+                                        Você acredita que isso pode continuar acontecendo?
+                                    </li>
+
+                                    <li>
+                                        Existe alguma informação importante que ainda não foi contada?
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <div class="levantamento-record">
+
+                                <label for="levantamentoVictimRecord">
+                                    Registro da escuta
+                                </label>
+
+                                <textarea id="levantamentoVictimRecord" rows="6" maxlength="6000" placeholder="Registre aqui as informações apresentadas durante a escuta..."></textarea>
+
+                                <small>
+                                    Registre o relato de forma objetiva, preservando as informações apresentadas pelo
+                                    participante.
+                                </small>
+
+                            </div>
+
+
+                            <!-- =================================================
+     INFORMAÇÕES ESSENCIAIS - POSSÍVEL VÍTIMA
+     ================================================= -->
+
+                            <div class="levantamento-essential">
+
+                                <div class="levantamento-essential-header">
+
+                                    <span class="case-eyebrow">
+                                        Informações essenciais
+                                    </span>
+
+                                    <h4>
+                                        Sobre os episódios relatados
+                                    </h4>
+
+                                </div>
+
+
+                                <div class="levantamento-essential-grid">
+
+                                    <div class="levantamento-field">
+
+                                        <label for="levantamentoVictimFrequency">
+                                            Frequência dos episódios
+                                        </label>
+
+                                        <input type="text" id="levantamentoVictimFrequency" maxlength="150" placeholder="Ex.: diariamente, semanalmente, ocasionalmente">
+
+                                    </div>
+
+
+                                    <div class="levantamento-field">
+
+                                        <label for="levantamentoVictimDuration">
+                                            Há quanto tempo vêm ocorrendo?
+                                        </label>
+
+                                        <input type="text" id="levantamentoVictimDuration" maxlength="150" placeholder="Ex.: há duas semanas, desde o início do semestre">
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="levantamento-essential-details">
+
+                                    <div class="levantamento-record">
+
+                                        <label for="levantamentoVictimRecurrence">
+                                            Descrição da recorrência
+                                        </label>
+
+                                        <textarea id="levantamentoVictimRecurrence" rows="4" maxlength="2500" placeholder="Descreva como os episódios vêm se repetindo ao longo do tempo..."></textarea>
+
+                                    </div>
+
+
+                                    <div class="levantamento-record">
+
+                                        <label for="levantamentoVictimContinuity">
+                                            Percepção da continuidade da situação
+                                        </label>
+
+                                        <textarea id="levantamentoVictimContinuity" rows="4" maxlength="2500" placeholder="Registre se a situação ainda ocorre, se há expectativa de continuidade ou se houve interrupção..."></textarea>
+
+                                    </div>
+
+
+                                    <div class="levantamento-record">
+
+                                        <label for="levantamentoVictimPreviousEpisodes">
+                                            Episódios anteriores relatados
+                                        </label>
+
+                                        <textarea id="levantamentoVictimPreviousEpisodes" rows="4" maxlength="3000" placeholder="Registre informações sobre episódios anteriores mencionados durante a escuta..."></textarea>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- =================================================
+     OBSERVAÇÕES DA ESCUTA
+     ================================================= -->
+
+                            <div class="levantamento-record">
+
+                                <label for="levantamentoVictimObservations">
+                                    Observações
+                                </label>
+
+                                <textarea id="levantamentoVictimObservations" rows="4" maxlength="3000" placeholder="Registre observações complementares da escuta, quando necessário..."></textarea>
+
+                                <small>
+                                    Campo para informações complementares que não façam parte diretamente do relato.
+                                </small>
+
+                            </div>
+
+
+                            <!-- =================================================
+     ENCAMINHAMENTOS DA ESCUTA
+     ================================================= -->
+
+                            <div class="levantamento-record">
+
+                                <label for="levantamentoVictimReferrals">
+                                    Encaminhamentos
+                                </label>
+
+                                <textarea id="levantamentoVictimReferrals" rows="4" maxlength="3000" placeholder="Registre os encaminhamentos definidos a partir desta escuta, quando houver..."></textarea>
+
+                                <small>
+                                    Registre apenas encaminhamentos relacionados a esta escuta.
+                                </small>
+
+                            </div>
+
+
+                            <!-- =================================================
+     DOCUMENTOS DA ESCUTA
+     ================================================= -->
+
+                            <div class="levantamento-documents">
+
+                                <div class="levantamento-documents-header">
+
+                                    <div>
+
+                                        <span class="case-eyebrow">
+                                            Documentos e evidências
+                                        </span>
+
+                                        <strong>
+                                            Registros associados à escuta
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="levantamento-documents-upload">
+
+                                    <input type="file" id="levantamentoVictimEvidenceInput" hidden>
+
+                                    <button type="button" class="levantamento-secondary-button" id="levantamentoVictimEvidenceButton">
+                                        + Anexar arquivo
+                                    </button>
+
+                                    <span class="levantamento-documents-limit">
+                                        Até 10 MB por arquivo
+                                    </span>
+
+                                </div>
+
+
+                                <div class="levantamento-documents-message" id="levantamentoVictimEvidenceMessage" aria-live="polite"></div>
+
+
+                                <div class="levantamento-documents-list" id="levantamentoVictimEvidenceList"></div>
+
+                            </div>
+
+                        </section>
+
+                    </section>
+
+                </section>
+
+
+                <!-- =================================================
+                     HISTÓRICO - COMUM AO CASO
+                     ================================================= -->
+
+                <section class="case-panel case-history-panel" id="caseHistoryPanel">
+
+
+                    <header class="case-panel-header">
+
+                        <div>
+
+                            <span class="case-eyebrow">
+                                Rastreabilidade
+                            </span>
+
+                            <h3>
+                                Histórico do caso
+                            </h3>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="case-history" id="caseHistory">
+
+                        <div class="case-empty-state">
+                            Carregando histórico...
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =========================================================
+         MODAL - INICIAR TRIAGEM
+         ========================================================= -->
+
+    <div class="case-modal-backdrop" id="startTriageModal" hidden>
+
+
+        <section class="case-modal" role="dialog" aria-modal="true" aria-labelledby="startTriageModalTitle">
+
+
+            <header class="case-modal-header">
+
+
+                <div>
+
+                    <span class="case-eyebrow">
+                        Responsabilidade
+                    </span>
+
+                    <h2 id="startTriageModalTitle">
+                        Quem conduzirá este caso?
+                    </h2>
+
+                </div>
+
+
+                <button type="button" class="case-modal-close" id="closeStartTriageModalButton" aria-label="Fechar">
+                    ×
+                </button>
+
+
+            </header>
+
+
+            <div class="case-modal-body">
+
+
+                <p class="case-modal-description">
+                    Antes de iniciar a triagem, defina quem será responsável pela condução do caso.
+                </p>
+
+
+                <button type="button" class="case-owner-self-button" id="takeTriageButton">
+                    Eu vou assumir este caso
+                </button>
+
+
+                <div class="case-modal-divider">
+
+                    <span>
+                        ou
+                    </span>
+
+                </div>
+
+
+                <div class="case-modal-field">
+
+
+                    <label for="startTriageOwnerSelect">
+                        Designar outro responsável
+                    </label>
+
+
+                    <select id="startTriageOwnerSelect">
+
+                        <option value="">
+                            Selecione um gestor
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+            </div>
+
+
+            <footer class="case-modal-footer">
+
+
+                <button type="button" class="case-modal-cancel-button" id="cancelStartTriageButton">
+                    Cancelar
+                </button>
+
+
+                <button type="button" class="case-modal-primary-button" id="confirmStartTriageButton">
+                    Iniciar triagem
+                </button>
+
+
+            </footer>
+
+
+        </section>
+
+
+    </div>
+
+
+
+    <!-- =========================================================
+         MODAL - ALTERAR RESPONSÁVEL
+         ========================================================= -->
+
+    <div class="case-modal-backdrop" id="changeTriageOwnerModal" hidden>
+
+
+        <section class="case-modal" role="dialog" aria-modal="true" aria-labelledby="changeTriageOwnerModalTitle">
+
+
+            <header class="case-modal-header">
+
+
+                <div>
+
+                    <span class="case-eyebrow">
+                        Condução do caso
+                    </span>
+
+                    <h2 id="changeTriageOwnerModalTitle">
+                        Alterar responsável
+                    </h2>
+
+                </div>
+
+
+                <button type="button" class="case-modal-close" id="closeChangeTriageOwnerModalButton" aria-label="Fechar">
+                    ×
+                </button>
+
+
+            </header>
+
+
+            <div class="case-modal-body">
+
+
+                <p class="case-modal-description">
+                    Selecione o membro da Gestão que ficará responsável pela condução deste caso.
+                </p>
+
+
+                <div class="case-owner-list" id="changeTriageOwnerList">
+                    Carregando responsáveis...
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+    <!-- =========================================================
+     MODAL - REMOVER DOCUMENTO DA TRIAGEM
+     ========================================================= -->
+
+    <div class="case-modal-backdrop" id="removeTriageDocumentModal" hidden>
+
+        <section class="case-modal" role="dialog" aria-modal="true" aria-labelledby="removeTriageDocumentModalTitle">
+
+            <header class="case-modal-header">
+
+                <div>
+
+                    <span class="case-eyebrow">
+                        Documento da triagem
+                    </span>
+
+                    <h2 id="removeTriageDocumentModalTitle">
+                        Remover documento?
+                    </h2>
+
+                </div>
+
+
+                <button type="button" class="case-modal-close" id="closeRemoveTriageDocumentModalButton" aria-label="Fechar">
+                    ×
+                </button>
+
+            </header>
+
+
+            <div class="case-modal-body">
+
+                <p class="case-modal-description">
+                    O documento deixará de aparecer na triagem, mas o registro da remoção será mantido no histórico do caso.
+                </p>
+
+
+                <div class="case-modal-field">
+
+                    <span class="triage-label">
+                        Arquivo
+                    </span>
+
+                    <strong id="removeTriageDocumentName">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <footer class="case-modal-footer">
+
+                <button type="button" class="case-modal-cancel-button" id="cancelRemoveTriageDocumentButton">
+                    Cancelar
+                </button>
+
+
+                <button type="button" class="case-modal-primary-button" id="confirmRemoveTriageDocumentButton">
+                    Remover documento
+                </button>
+
+            </footer>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         SCRIPTS
+         ========================================================= -->
+
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <script defer src="../js/config/supabase.js"></script>
+
+
+    <script defer src="../js/auth/sessao.js"></script>
+
+
+    <script src="../js/pages/etapas/triagem.js" defer></script>
+
+    <script src="../js/pages/etapas/levantamento.js" defer></script>
+
+    <script src="../js/pages/caso-gestao.js" defer></script>
+
+
+</body>
+
+</html>

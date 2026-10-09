@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nova situação | PEC Gestão de Casos</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+
+    <link rel="stylesheet" href="../css/nova-situacao.css">
+
+</head>
+
+<body>
+
+    <header class="flow-header">
+
+        <div class="flow-header-inner">
+
+            <button type="button" class="back-button" id="backDashboard">
+                ←
+                <span>Voltar</span>
+            </button>
+
+
+            <img src="../assets/img/logo-pec-h.png" alt="PEC" class="flow-logo">
+
+
+            <div class="save-status" id="saveStatus">
+                <span class="save-dot"></span> Rascunho local
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="flow-main">
+
+        <div class="flow-container">
+
+            <div class="flow-heading">
+
+                <span class="flow-eyebrow">
+                    Registro de situação
+                </span>
+
+                <h1>
+                    Nova situação
+                </h1>
+
+                <p>
+                    Vamos registrar as informações essenciais em poucas etapas.
+                </p>
+
+            </div>
+
+
+            <!-- =============================================
+					PROGRESSO
+					============================================= -->
+
+            <div class="progress-area">
+
+                <div class="progress-top">
+
+                    <span id="stepText">
+                        Etapa 1 de 4
+                    </span>
+
+                    <span id="stepName">
+                        Como você soube?
+                    </span>
+
+                </div>
+
+                <div class="progress-track">
+
+                    <div class="progress-bar" id="progressBar"></div>
+
+                </div>
+
+                <div class="step-dots">
+
+                    <span class="step-dot active"></span>
+                    <span class="step-dot"></span>
+                    <span class="step-dot"></span>
+                    <span class="step-dot"></span>
+
+                </div>
+
+            </div>
+
+
+            <form id="situationForm">
+
+                <!-- =========================================
+						ETAPA 1
+						========================================= -->
+
+                <section class="form-step active" data-step="1">
+
+                    <div class="step-heading">
+
+                        <span class="step-kicker">
+                            Origem da informação
+                        </span>
+
+                        <h2>
+                            Como essa situação chegou até você?
+                        </h2>
+
+                        <p>
+                            Escolha a opção que melhor representa como você tomou conhecimento.
+                        </p>
+
+                    </div>
+
+
+                    <div class="choice-grid">
+
+                        <label class="choice-card">
+
+                            <input type="radio" name="origem" value="Professor" data-label="Eu presenciei">
+
+                            <span class="choice-icon">
+                                ◉
+                            </span>
+
+                            <span class="choice-content">
+
+                                <strong>
+                                    Eu presenciei
+                                </strong>
+
+                                <small>
+                                    Você observou a situação diretamente.
+                                </small>
+
+                            </span>
+
+                            <span class="choice-check">
+                                ✓
+                            </span>
+
+                        </label>
+
+
+                        <label class="choice-card">
+
+                            <input type="radio" name="origem" value="Estudante" data-label="Um estudante me contou">
+
+                            <span class="choice-icon">
+                                ◇
+                            </span>
+
+                            <span class="choice-content">
+
+                                <strong>
+                                    Um estudante me contou
+                                </strong>
+
+                                <small>
+                                    Um aluno procurou você para conversar.
+                                </small>
+
+                            </span>
+
+                            <span class="choice-check">
+                                ✓
+                            </span>
+
+                        </label>
+
+
+                        <label class="choice-card">
+
+                            <input type="radio" name="origem" value="Família" data-label="Uma família comunicou">
+
+                            <span class="choice-icon">
+                                ○
+                            </span>
+
+                            <span class="choice-content">
+
+                                <strong>
+                                    Uma família comunicou
+                                </strong>
+
+                                <small>
+                                    Pai, mãe ou responsável trouxe a informação.
+                                </small>
+
+                            </span>
+
+                            <span class="choice-check">
+                                ✓
+                            </span>
+
+                        </label>
+
+
+                        <label class="choice-card">
+
+                            <input type="radio" name="origem" value="Funcionário"
+                                data-label="Outro profissional informou">
+
+                            <span class="choice-icon">
+                                □
+                            </span>
+
+                            <span class="choice-content">
+
+                                <strong>
+                                    Outro profissional informou
+                                </strong>
+
+                                <small>
+                                    A informação veio de alguém da equipe escolar.
+                                </small>
+
+                            </span>
+
+                            <span class="choice-check">
+                                ✓
+                            </span>
+
+                        </label>
+
+
+                        <label class="choice-card">
+
+                            <input type="radio" name="origem" value="Gestão" data-label="A gestão me informou">
+
+                            <span class="choice-icon">
+                                △
+                            </span>
+
+                            <span class="choice-content">
+
+                                <strong>
+                                    A gestão me informou
+                                </strong>
+
+                                <small>
+                                    Diretor, vice ou equipe pedagógica.
+                                </small>
+
+                            </span>
+
+                            <span class="choice-check">
+                                ✓
+                            </span>
+
+                        </label>
+
+
+                        <label class="choice-card">
+
+                            <input type="radio" name="origem" value="Colega" data-label="Um colega comunicou">
+
+                            <span class="choice-icon">
+                                ◌
+                            </span>
+
+                            <span class="choice-content">
+
+                                <strong>
+                                    Um colega comunicou
+                                </strong>
+
+                                <small>
+                                    A situação foi relatada por outro colega.
+                                </small>
+
+                            </span>
+
+                            <span class="choice-check">
+                                ✓
+                            </span>
+
+                        </label>
+
+
+                        <label class="choice-card">
+
+                            <input type="radio" name="origem" value="Canal institucional de denúncia"
+                                data-label="Canal institucional">
+
+                            <span class="choice-icon">
+                                ✉
+                            </span>
+
+                            <span class="choice-content">
+
+                                <strong>
+                                    Canal institucional
+                                </strong>
+
+                                <small>
+                                    A informação veio por um canal da escola.
+                                </small>
+
+                            </span>
+
+                            <span class="choice-check">
+                                ✓
+                            </span>
+
+                        </label>
+
+
+                        <label class="choice-card">
+
+                            <input type="radio" name="origem" value="Outro" data-label="Outra origem">
+
+                            <span class="choice-icon">
+                                +
+                            </span>
+
+                            <span class="choice-content">
+
+                                <strong>
+                                    Outra origem
+                                </strong>
+
+                                <small>
+                                    Nenhuma das opções anteriores.
+                                </small>
+
+                            </span>
+
+                            <span class="choice-check">
+                                ✓
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="field-group secondary-field" id="quemComunicouGroup" hidden>
+
+                        <label for="quemComunicou">
+                            Quem comunicou?
+                            <span>Opcional</span>
+                        </label>
+
+                        <input type="text" id="quemComunicou" placeholder="Nome ou identificação, se souber" maxlength="160">
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+		ETAPA 2
+		========================================= -->
+
+                <section class="form-step" data-step="2">
+
+                    <div class="step-heading">
+
+                        <span class="step-kicker">
+                            Pessoas envolvidas
+                        </span>
+
+                        <h2>
+                            Quem está envolvido?
+                        </h2>
+
+                        <p>
+                            Informe os papéis percebidos neste primeiro momento. A equipe responsável poderá revisar essas informações durante a apuração.
+                        </p>
+
+                    </div>
+
+
+                    <!-- =====================================================
+			POSSÍVEL VÍTIMA
+			===================================================== -->
+
+                    <div class="participant-block">
+
+                        <div class="participant-block-header">
+
+                            <div>
+
+                                <span class="participant-required">
+                                    Obrigatório
+                                </span>
+
+                                <h3>
+                                    Possível vítima
+                                </h3>
+
+                                <p>
+                                    Selecione pelo menos um estudante.
+                                </p>
+
+                            </div>
+
+                            <strong class="participant-count" id="victimCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="student-search">
+
+                            <span>⌕</span>
+
+                            <input type="search" id="victimSearch" placeholder="Procurar estudante..." autocomplete="off">
+
+                        </div>
+
+
+                        <div class="student-list compact-list search-results" id="victimList" hidden></div>
+
+
+                        <div class="selected-participants" id="selectedVictims"></div>
+
+                    </div>
+
+
+                    <!-- =====================================================
+			POSSÍVEL AUTOR
+			===================================================== -->
+
+                    <div class="participant-block">
+
+                        <div class="participant-block-header">
+
+                            <div>
+
+                                <span class="participant-required">
+                                    Obrigatório
+                                </span>
+
+                                <h3>
+                                    Possível autor
+                                </h3>
+
+                                <p>
+                                    Selecione pelo menos um estudante.
+                                </p>
+
+                            </div>
+
+                            <strong class="participant-count" id="authorCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="student-search">
+
+                            <span>⌕</span>
+
+                            <input type="search" id="authorSearch" placeholder="Procurar estudante..." autocomplete="off">
+
+                        </div>
+
+
+                        <div class="student-list compact-list search-results" id="authorList" hidden></div>
+
+
+                        <div class="selected-participants" id="selectedAuthors"></div>
+
+                    </div>
+
+
+                    <!-- =====================================================
+			TESTEMUNHAS
+			===================================================== -->
+
+                    <div class="participant-block witness-block">
+
+                        <div class="participant-block-header">
+
+                            <div>
+
+                                <span class="participant-optional">
+                                    Opcional
+                                </span>
+
+                                <h3>
+                                    Testemunhas
+                                </h3>
+
+                                <p>
+                                    Adicione pessoas que presenciaram ou possam contribuir com informações.
+                                </p>
+
+                            </div>
+
+                            <strong class="participant-count" id="witnessCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="witness-types">
+
+                            <button type="button" class="witness-type-button" id="witnessStudentButton">
+                                + Aluno
+                            </button>
+
+                            <button type="button" class="witness-type-button" id="witnessStaffButton">
+                                + Profissional
+                            </button>
+
+                            <button type="button" class="witness-type-button" id="witnessSelfButton">
+                                + Eu presenciei
+                            </button>
+
+                            <button type="button" class="witness-type-button" id="witnessExternalButton">
+                                + Outra pessoa
+                            </button>
+
+                        </div>
+
+
+                        <div class="witness-panel" id="witnessStudentPanel" hidden>
+
+                            <div class="student-search">
+
+                                <span>⌕</span>
+
+                                <input type="search" id="witnessStudentSearch" placeholder="Procurar estudante..." autocomplete="off">
+
+                            </div>
+
+                            <div class="student-list compact-list" id="witnessStudentList"></div>
+
+                        </div>
+
+
+                        <div class="witness-panel" id="witnessStaffPanel" hidden>
+
+                            <div class="student-search">
+
+                                <span>⌕</span>
+
+                                <input type="search" id="witnessStaffSearch" placeholder="Procurar profissional..." autocomplete="off">
+
+                            </div>
+
+                            <div class="student-list compact-list" id="witnessStaffList"></div>
+
+                        </div>
+
+
+                        <div class="witness-panel" id="witnessExternalPanel" hidden>
+
+                            <div class="two-columns">
+
+                                <div class="field-group">
+
+                                    <label for="externalWitnessName">
+                                        Nome
+                                    </label>
+
+                                    <input type="text" id="externalWitnessName" placeholder="Nome da testemunha" maxlength="160">
+
+                                </div>
+
+
+                                <div class="field-group">
+
+                                    <label for="externalWitnessRole">
+                                        Relação ou função
+                                        <span>Opcional</span>
+                                    </label>
+
+                                    <input type="text" id="externalWitnessRole" placeholder="Ex.: responsável, visitante..." maxlength="120">
+
+                                </div>
+
+                            </div>
+
+
+                            <button type="button" class="add-external-button" id="addExternalWitnessButton">
+                                Adicionar testemunha
+                            </button>
+
+                        </div>
+
+
+                        <div class="selected-witnesses" id="selectedWitnesses">
+
+                            <div class="witness-empty">
+                                Nenhuma testemunha adicionada.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+                ETAPA 3
+                ========================================= -->
+
+                <section class="form-step" data-step="3">
+
+                    <div class="step-heading">
+
+                        <span class="step-kicker">
+                            Relato inicial
+                        </span>
+
+                        <h2>
+                            O que aconteceu e quando?
+                        </h2>
+
+                        <p>
+                            Registre o momento e os fatos conhecidos. A data do registro no PEC será preservada separadamente para auditoria.
+                        </p>
+
+                    </div>
+
+
+                    <div class="occurrence-date-card">
+
+                        <div class="two-columns">
+
+                            <div class="field-group">
+
+                                <label for="occurrenceDate">
+                                    Data da situação
+                                </label>
+
+                                <input type="date" id="occurrenceDate">
+
+                            </div>
+
+
+                            <div class="field-group">
+
+                                <label for="occurrenceTime">
+                                    Horário
+                                    <span>Se souber</span>
+                                </label>
+
+                                <input type="time" id="occurrenceTime">
+
+                            </div>
+
+                        </div>
+
+
+                        <label class="approximate-time">
+
+                            <input type="checkbox" id="approximateTime">
+
+                            <span class="custom-checkbox">
+                                <span class="custom-checkbox-mark">
+                                    ✓
+                                </span>
+                            </span>
+
+                            <span class="approximate-time-text">
+                                O horário informado é aproximado
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="two-columns">
+
+                        <div class="field-group">
+
+                            <label for="ambiente">
+                                Onde aconteceu?
+                            </label>
+
+                            <select id="ambiente">
+
+                                <option value="">
+                                    Selecione
+                                </option>
+
+                                <option value="Sala de aula">
+                                    Sala de aula
+                                </option>
+
+                                <option value="Pátio">
+                                    Pátio
+                                </option>
+
+                                <option value="Corredor">
+                                    Corredor
+                                </option>
+
+                                <option value="Entrada ou saída">
+                                    Entrada ou saída
+                                </option>
+
+                                <option value="Banheiro">
+                                    Banheiro
+                                </option>
+
+                                <option value="Quadra">
+                                    Quadra
+                                </option>
+
+                                <option value="Transporte escolar">
+                                    Transporte escolar
+                                </option>
+
+                                <option value="Ambiente digital">
+                                    Ambiente digital
+                                </option>
+
+                                <option value="Outro">
+                                    Outro
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="field-group">
+
+                            <label>
+                                Como ocorreu?
+                            </label>
+
+                            <div class="inline-options">
+
+                                <label class="small-option">
+
+                                    <input type="radio" name="tipoAmbiente" value="Presencial">
+
+                                    <span>
+                                        Presencial
+                                    </span>
+
+                                </label>
+
+
+                                <label class="small-option">
+
+                                    <input type="radio" name="tipoAmbiente" value="Digital">
+
+                                    <span>
+                                        Digital
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field-group">
+
+                        <div class="field-label-row">
+
+                            <label for="descricao">
+                                Conte o que aconteceu
+                            </label>
+
+                            <span id="descriptionCounter">
+                                0 / 3000
+                            </span>
+
+                        </div>
+
+                        <!-- =====================================================
+     RELATO POR ÁUDIO
+     ===================================================== -->
+
+                        <div class="voice-report">
+
+                            <div class="voice-report-header">
+
+                                <div class="voice-report-intro">
+
+                                    <strong>
+                                        Prefere falar?
+                                    </strong>
+
+                                    <span>
+                                        Grave um áudio e transforme sua fala em texto.
+                                    </span>
+
+                                </div>
+
+                                <button type="button" class="voice-start-button" id="startVoiceRecordButton">
+                                    <span class="voice-button-icon">
+                                        ●
+                                    </span>
+
+                                    Gravar relato
+                                </button>
+
+                            </div>
+
+
+                            <!-- =================================================
+         GRAVAÇÃO EM ANDAMENTO
+         ================================================= -->
+
+                            <div class="voice-recording-panel" id="voiceRecordingPanel" hidden>
+
+                                <div class="voice-recording-status">
+
+                                    <span class="voice-recording-dot"></span>
+
+                                    <div>
+
+                                        <strong>
+                                            Gravando...
+                                        </strong>
+
+                                        <span id="voiceRecordingTime">
+                                            00:00
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="voice-recording-actions">
+
+                                    <button type="button" class="voice-cancel-button" id="cancelVoiceRecordButton">
+                                        Cancelar
+                                    </button>
+
+                                    <button type="button" class="voice-stop-button" id="stopVoiceRecordButton">
+                                        ■ Parar gravação
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- =================================================
+         TRANSCRIÇÃO EM ANDAMENTO
+         ================================================= -->
+
+                            <div class="voice-transcribing" id="voiceTranscribing" hidden>
+
+                                <span class="voice-transcribing-spinner"></span>
+
+                                <div>
+
+                                    <strong>
+                                        Transcrevendo relato...
+                                    </strong>
+
+                                    <span>
+                                        O texto aparecerá abaixo assim que estiver pronto.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- =================================================
+         ORIENTAÇÃO
+         ================================================= -->
+
+                            <div class="voice-report-note">
+
+                                <span>
+        i
+    </span>
+
+                                <p id="voiceReportSupportText">
+                                    Revise o texto reconhecido antes de continuar. O recurso de ditado utiliza o reconhecimento de voz disponível no navegador.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =====================================================
+     TEXTO DO RELATO
+     ===================================================== -->
+
+                        <textarea id="descricao" rows="8" maxlength="3000" placeholder="Registre fatos, falas e situações que você observou ou que foram comunicadas..."></textarea>
+
+                        <div class="writing-guidance">
+
+                            <span>i</span>
+
+                            <p>
+                                Descreva os fatos da forma mais objetiva possível. Você não precisa concluir se a situação caracteriza bullying.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+						ETAPA 4
+						========================================= -->
+
+                <section class="form-step" data-step="4">
+
+                    <div class="step-heading">
+
+                        <span class="step-kicker">
+                            Segurança e revisão
+                        </span>
+
+                        <h2>
+                            Só mais duas verificações.
+                        </h2>
+
+                        <p>
+                            Essas informações ajudam a equipe gestora a definir a prioridade do atendimento.
+                        </p>
+
+                    </div>
+
+
+                    <!-- =====================================================
+		VERIFICAÇÕES DE SEGURANÇA
+		===================================================== -->
+
+                    <div class="decision-grid">
+
+                        <!-- =================================================
+			EVIDÊNCIAS
+			================================================= -->
+
+                        <div class="decision-card">
+
+                            <div class="decision-card-content">
+
+                                <strong>
+                                    Existem evidências iniciais?
+                                </strong>
+
+                                <p>
+                                    Ex.: mensagens, imagens, documentos ou outros registros.
+                                </p>
+
+                            </div>
+
+
+                            <div class="yes-no">
+
+                                <label>
+
+                                    <input type="radio" name="evidencias" value="true">
+
+                                    <span>
+                                        Sim
+                                    </span>
+
+                                </label>
+
+
+                                <label>
+
+                                    <input type="radio" name="evidencias" value="false">
+
+                                    <span>
+                                        Não
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+			RISCO IMEDIATO
+			================================================= -->
+
+                        <div class="decision-card risk-question">
+
+                            <div class="decision-card-content">
+
+                                <strong>
+                                    Há indicação de risco imediato?
+                                </strong>
+
+                                <p>
+                                    Considere qualquer situação que demande proteção ou atenção imediata.
+                                </p>
+
+                            </div>
+
+
+                            <div class="yes-no">
+
+                                <label>
+
+                                    <input type="radio" name="risco" value="true">
+
+                                    <span>
+                                        Sim
+                                    </span>
+
+                                </label>
+
+
+                                <label>
+
+                                    <input type="radio" name="risco" value="false">
+
+                                    <span>
+                                        Não
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="risk-alert" id="riskAlert" hidden>
+
+                        <strong>
+                            Atenção imediata
+                        </strong>
+
+                        <p>
+                            Se houver risco imediato, priorize a proteção do estudante e acione a equipe gestora conforme o protocolo da escola. O registro no sistema não substitui uma providência urgente.
+                        </p>
+
+                    </div>
+
+
+                    <div class="review-card">
+
+                        <div class="review-header">
+
+                            <div>
+
+                                <span>
+                                    Revisão
+                                </span>
+
+                                <h3>
+                                    Confira antes de enviar
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="review-grid review-grid-full">
+
+                            <div class="review-item review-wide">
+
+                                <span>
+                                    Possível vítima
+                                </span>
+
+                                <strong id="reviewVictims">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item review-wide">
+
+                                <span>
+                                    Possível autor
+                                </span>
+
+                                <strong id="reviewAuthors">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item review-wide">
+
+                                <span>
+                                    Testemunhas
+                                </span>
+
+                                <strong id="reviewWitnesses">
+                                    Nenhuma informada
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Quando aconteceu
+                                </span>
+
+                                <strong id="reviewOccurrence">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Origem da informação
+                                </span>
+
+                                <strong id="reviewOrigin">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Ambiente
+                                </span>
+
+                                <strong id="reviewEnvironment">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Modalidade
+                                </span>
+
+                                <strong id="reviewType">
+                                    —
+                                </strong>
+
+                            </div>
+
+                            <!-- =================================================
+     EVIDÊNCIAS
+     ================================================= -->
+
+                            <div class="review-item">
+
+                                <span>
+                                    Evidências relacionadas
+                                </span>
+
+                                <strong id="reviewEvidence">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <!-- =================================================
+     RISCO IMEDIATO
+     ================================================= -->
+
+                            <div class="review-item">
+
+                                <span>
+                                    Risco imediato
+                                </span>
+
+                                <strong id="reviewRisk">
+                                    —
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="initial-role-note">
+
+                            <span>i</span>
+
+                            <p>
+                                Os papéis indicados neste registro são iniciais e poderão ser revistos pela equipe responsável durante a apuração.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+						ERRO
+						========================================= -->
+
+                <div class="form-message" id="formMessage" role="alert" aria-live="polite"></div>
+
+
+                <!-- =========================================
+						CONTROLES
+						========================================= -->
+
+                <div class="form-actions">
+
+                    <button type="button" class="draft-button" id="saveDraftButton">
+                        Salvar rascunho e sair
+                    </button>
+
+
+                    <button type="button" class="secondary-button" id="previousButton" hidden>
+                        ← Voltar
+                    </button>
+
+
+                    <button type="button" class="primary-button" id="nextButton">
+                        Continuar →
+                    </button>
+
+
+                    <button type="submit" class="primary-button submit-button" id="submitButton" hidden>
+
+                        <span id="submitText">
+                            Enviar para a equipe responsável
+                        </span>
+
+                        <span class="button-spinner" id="submitSpinner" hidden></span>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <!-- =============================================
+					SUCESSO
+					============================================= -->
+
+            <section class="success-card" id="successCard" hidden>
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <span class="success-label">
+                    Registro realizado
+                </span>
+
+                <h2>
+                    A situação foi enviada com segurança.
+                </h2>
+
+                <p>
+                    A equipe responsável poderá seguir com a avaliação e o acompanhamento.
+                </p>
+
+
+                <div class="case-number-box">
+
+                    <span>
+                        Número do caso
+                    </span>
+
+                    <strong id="createdCaseNumber">
+                        PEC-0000
+                    </strong>
+
+                </div>
+
+
+                <button type="button" class="primary-button success-button" id="successDashboardButton">
+                    Voltar para o início
+                </button>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../js/config/supabase.js"></script>
+
+    <script src="../js/auth/sessao.js"></script>
+
+    <script src="../js/pages/nova-situacao.js"></script>
+
+</body>
+
+</html>

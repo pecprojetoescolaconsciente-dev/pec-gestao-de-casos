@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Casos | PEC</title>
+
+
+    <link rel="stylesheet" href="../css/base.css">
+
+    <link rel="stylesheet" href="../css/dashboard-gestao.css">
+
+    <link rel="stylesheet" href="../css/casos-gestao.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="management-layout">
+
+
+        <!-- =====================================================
+             Sidebar
+             ===================================================== -->
+
+        <aside class="management-sidebar">
+
+
+            <div class="management-sidebar-top">
+
+
+                <a href="./dashboard.html" class="management-logo">
+
+                    <img src="../assets/img/logo-pec-h.png" alt="PEC">
+
+                </a>
+
+
+                <nav class="management-nav">
+
+
+                    <a href="./dashboard.html" class="management-nav-item">
+
+                        <span class="management-nav-icon">
+                            ◫
+                        </span>
+
+                        <span>
+                            Visão geral
+                        </span>
+
+                    </a>
+
+
+                    <a href="./casos.html" class="management-nav-item active">
+
+                        <span class="management-nav-icon">
+                            ▤
+                        </span>
+
+                        <span>
+                            Casos
+                        </span>
+
+                    </a>
+
+
+                </nav>
+
+
+            </div>
+
+
+            <div class="management-sidebar-bottom">
+
+
+                <div class="management-profile">
+
+
+                    <div class="management-profile-avatar" id="managementProfileAvatar">
+                        G
+                    </div>
+
+
+                    <div class="management-profile-info">
+
+                        <strong id="managementProfileName">
+                            Carregando...
+                        </strong>
+
+                        <span id="managementProfileRole">
+                            Gestão
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <button type="button" class="management-logout-button" id="logoutButton">
+                    Sair
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =====================================================
+             Conteúdo
+             ===================================================== -->
+
+        <main class="cases-main">
+
+
+            <!-- =================================================
+                 Cabeçalho
+                 ================================================= -->
+
+            <header class="cases-header">
+
+
+                <div>
+
+                    <span class="cases-eyebrow">
+                        Gestão de casos
+                    </span>
+
+
+                    <h1>
+                        Casos
+                    </h1>
+
+
+                    <p>
+                        Consulte e acompanhe os registros recebidos pela escola.
+                    </p>
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- =================================================
+                 Barra de busca
+                 ================================================= -->
+
+            <section class="cases-toolbar">
+
+
+                <div class="cases-search">
+
+
+                    <label for="casesSearch" class="cases-search-label">
+                        Buscar caso
+                    </label>
+
+
+                    <div class="cases-search-field">
+
+
+                        <span class="cases-search-icon">
+                            ⌕
+                        </span>
+
+
+                        <input type="search" id="casesSearch" placeholder="Número do caso ou estudante" autocomplete="off">
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 Filtros
+                 ================================================= -->
+
+            <section class="cases-filters">
+
+
+                <div class="cases-filter-field">
+
+                    <label for="filterEtapa">
+                        Etapa
+                    </label>
+
+                    <select id="filterEtapa">
+
+                        <option value="">
+                            Todas
+                        </option>
+
+                        <option value="denuncia">
+                            Aguardando triagem
+                        </option>
+
+                        <option value="triagem">
+                            Triagem
+                        </option>
+
+                        <option value="levantamento">
+                            Levantamento
+                        </option>
+
+                        <option value="analise">
+                            Análise
+                        </option>
+
+                        <option value="classificacao">
+                            Classificação
+                        </option>
+
+                        <option value="intervencao">
+                            Intervenção
+                        </option>
+
+                        <option value="monitoramento">
+                            Monitoramento
+                        </option>
+
+                        <option value="reavaliacao">
+                            Reavaliação
+                        </option>
+
+                        <option value="encerramento">
+                            Encerramento
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="cases-filter-field">
+
+                    <label for="filterAtencao">
+                        Atenção
+                    </label>
+
+                    <select id="filterAtencao">
+
+                        <option value="">
+                            Todos os níveis
+                        </option>
+
+                        <option value="sem_classificacao">
+                            Não classificado
+                        </option>
+
+                        <option value="Baixo">
+                            Baixo
+                        </option>
+
+                        <option value="Médio">
+                            Médio
+                        </option>
+
+                        <option value="Alto">
+                            Alto
+                        </option>
+
+                        <option value="Urgente">
+                            Urgente
+                        </option>
+
+                        <option value="risco_imediato">
+                            Risco imediato informado
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="cases-filter-field">
+
+                    <label for="filterStatus">
+                        Status
+                    </label>
+
+                    <select id="filterStatus">
+
+                        <option value="">
+                            Todos
+                        </option>
+
+                        <option value="Em andamento">
+                            Em andamento
+                        </option>
+
+                        <option value="Concluído">
+                            Concluído
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="cases-filter-field">
+
+                    <label for="filterResponsavel">
+                        Responsável
+                    </label>
+
+                    <select id="filterResponsavel">
+
+                        <option value="">
+                            Todos
+                        </option>
+
+                        <option value="sem_responsavel">
+                            Sem responsável
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <button type="button" class="cases-clear-filters" id="clearFiltersButton">
+                    Limpar filtros
+                </button>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 Lista
+                 ================================================= -->
+
+            <section class="cases-panel">
+
+
+                <div class="cases-panel-header">
+
+
+                    <div>
+
+                        <span class="cases-section-eyebrow">
+                            Acompanhamento
+                        </span>
+
+                        <div class="cases-panel-title-row">
+
+                            <h2>
+                                Todos os casos
+                            </h2>
+
+                            <span class="cases-count-badge" id="casesCount">
+                                —
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="cases-list" id="casesList">
+
+
+                    <div class="cases-empty-state">
+
+                        <span class="cases-empty-icon">
+                            ▤
+                        </span>
+
+                        <strong>
+                            Carregando casos...
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =========================================================
+         Scripts
+         ========================================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../js/config/supabase.js"></script>
+
+    <script src="../js/auth/sessao.js"></script>
+
+    <script src="../js/pages/casos-gestao.js"></script>
+
+
+</body>
+
+</html>

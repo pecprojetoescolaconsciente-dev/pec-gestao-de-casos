@@ -1,0 +1,706 @@
+/* =========================================================
+   PEC - GESTÃO DE CASOS
+   Dashboard da Gestão
+   ========================================================= */
+
+
+/* =========================================================
+   Base da página
+   ========================================================= */
+
+body {
+    margin: 0;
+    background: #f6f8f9;
+    color: #1c2f3d;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Layout principal
+   ========================================================= */
+
+.management-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+}
+
+
+/* =========================================================
+   Sidebar
+   ========================================================= */
+
+.management-sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #ffffff;
+    border-right: 1px solid #e4e9ec;
+}
+
+.management-sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+
+/* =========================================================
+   Logo
+   ========================================================= */
+
+.management-logo {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    text-decoration: none;
+}
+
+.management-logo img {
+    display: block;
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========================================================
+   Navegação
+   ========================================================= */
+
+.management-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.management-nav-item {
+    min-height: 44px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    border-radius: 10px;
+    color: #536571;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+
+.management-nav-item:hover {
+    background: #f1f5f6;
+    color: #1c4657;
+}
+
+.management-nav-item.active {
+    background: #edf5f5;
+    color: #205968;
+}
+
+.management-nav-icon {
+    width: 22px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   Perfil lateral
+   ========================================================= */
+
+.management-sidebar-bottom {
+    padding-top: 18px;
+    border-top: 1px solid #edf0f2;
+}
+
+.management-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.management-profile-avatar {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e9f2f3;
+    color: #205968;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.management-profile-info {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.management-profile-info strong {
+    overflow: hidden;
+    color: #253b47;
+    font-size: 13px;
+    font-weight: 650;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.management-profile-info span {
+    overflow: hidden;
+    color: #7b8b94;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.management-logout-button {
+    width: 100%;
+    margin-top: 14px;
+    padding: 9px 12px;
+    border: 1px solid #dde4e7;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #667983;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.management-logout-button:hover {
+    background: #f6f8f9;
+    border-color: #cbd5da;
+}
+
+
+/* =========================================================
+   Área principal
+   ========================================================= */
+
+.management-main {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 38px 42px 56px;
+}
+
+
+/* =========================================================
+   Cabeçalho
+   ========================================================= */
+
+.management-header {
+    margin-bottom: 28px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.management-eyebrow,
+.management-section-eyebrow {
+    display: block;
+    margin-bottom: 6px;
+    color: #66808b;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.management-header h1 {
+    margin: 0 0 7px;
+    color: #1c3443;
+    font-size: clamp( 28px, 3vw, 36px);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+}
+
+.management-header p {
+    margin: 0;
+    color: #74858e;
+    font-size: 14px;
+}
+
+.management-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.management-secondary-button {
+    min-height: 42px;
+    padding: 10px 17px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d7e0e4;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #315e6b;
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+    transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.management-secondary-button:hover {
+    background: #f4f8f8;
+    border-color: #bdcdd3;
+}
+
+.management-primary-button {
+    min-height: 42px;
+    padding: 10px 17px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #245d6c;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+    transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.management-primary-button:hover {
+    background: #1d4e5b;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   Cards de indicadores
+   ========================================================= */
+
+.management-stats {
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat( 4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.management-stat-card {
+    min-height: 148px;
+    padding: 19px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e2e8eb;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(22, 45, 57, 0.03);
+}
+
+.management-stat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.management-stat-label {
+    color: #546a75;
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.3;
+}
+
+.management-stat-indicator {
+    color: #d68b37;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.management-stat-number {
+    margin-top: 15px;
+    color: #1c3543;
+    font-size: 31px;
+    font-weight: 720;
+    line-height: 1;
+}
+
+.management-stat-help {
+    margin-top: auto;
+    padding-top: 12px;
+    color: #87959d;
+    font-size: 11.5px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   Grade principal
+   ========================================================= */
+
+.management-content-grid {
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.8fr);
+    gap: 18px;
+    align-items: start;
+}
+
+
+/* =========================================================
+   Painéis
+   ========================================================= */
+
+.management-panel {
+    overflow: hidden;
+    border: 1px solid #e2e8eb;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(22, 45, 57, 0.03);
+}
+
+.management-panel-header {
+    min-height: 74px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid #edf1f3;
+}
+
+.management-panel-header h2 {
+    margin: 0;
+    color: #263f4c;
+    font-size: 17px;
+    font-weight: 680;
+    letter-spacing: -0.015em;
+}
+
+.management-section-eyebrow {
+    margin-bottom: 4px;
+    font-size: 10px;
+}
+
+.management-text-link {
+    flex-shrink: 0;
+    color: #276272;
+    font-size: 12px;
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.management-text-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   Listas de casos
+   ========================================================= */
+
+.management-case-list {
+    min-height: 160px;
+}
+
+.management-empty-state {
+    min-height: 160px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #8a989f;
+    text-align: center;
+}
+
+.management-empty-state.small {
+    min-height: 130px;
+}
+
+.management-empty-state strong {
+    color: #687b85;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.management-empty-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f1f5f6;
+    color: #72868f;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   Estrutura pronta para os cards de caso
+   que o JavaScript criará depois
+   ========================================================= */
+
+.management-case-item {
+    padding: 15px 20px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: center;
+    border-bottom: 1px solid #edf1f3;
+    transition: background 0.16s ease;
+}
+
+.management-case-item:last-child {
+    border-bottom: 0;
+}
+
+.management-case-item:hover {
+    background: #fafcfc;
+}
+
+.management-case-main {
+    min-width: 0;
+}
+
+.management-case-top {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.management-case-number {
+    color: #214c5b;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.management-case-status {
+    padding: 4px 7px;
+    border-radius: 999px;
+    background: #eef3f4;
+    color: #60757e;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.management-case-title {
+    margin-top: 6px;
+    overflow: hidden;
+    color: #263e4b;
+    font-size: 13px;
+    font-weight: 620;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.management-case-meta {
+    margin-top: 4px;
+    color: #84929a;
+    font-size: 11px;
+}
+
+.management-case-action {
+    padding: 7px 10px;
+    border: 1px solid #dbe3e6;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #315e6b;
+    font-size: 11px;
+    font-weight: 650;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.management-case-action:hover {
+    background: #f2f7f8;
+}
+
+
+/* =========================================================
+   Atenção
+   ========================================================= */
+
+.management-attention-list {
+    min-height: 130px;
+}
+
+.management-attention-item {
+    padding: 14px 18px;
+    border-bottom: 1px solid #edf1f3;
+}
+
+.management-attention-item:last-child {
+    border-bottom: 0;
+}
+
+.management-attention-item strong {
+    display: block;
+    overflow: hidden;
+    color: #344d59;
+    font-size: 12px;
+    font-weight: 650;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.management-attention-item span {
+    display: block;
+    margin-top: 4px;
+    color: #85939a;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   Casos recentes
+   ========================================================= */
+
+.management-recent-panel {
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   Tablet
+   ========================================================= */
+
+@media ( max-width: 1100px) {
+    .management-layout {
+        grid-template-columns: 220px minmax(0, 1fr);
+    }
+    .management-main {
+        padding: 30px 28px 46px;
+    }
+    .management-stats {
+        grid-template-columns: repeat( 2, minmax(0, 1fr));
+    }
+    .management-content-grid {
+        grid-template-columns: 1fr;
+    }
+    .management-side-column {
+        display: block;
+    }
+}
+
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media ( max-width: 760px) {
+    .management-layout {
+        display: block;
+    }
+    .management-sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 14px 16px;
+        border-right: 0;
+        border-bottom: 1px solid #e4e9ec;
+    }
+    .management-sidebar-top {
+        gap: 14px;
+    }
+    .management-logo img {
+        width: 125px;
+    }
+    .management-nav {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    .management-nav-item {
+        min-width: max-content;
+        padding: 8px 11px;
+    }
+    .management-sidebar-bottom {
+        margin-top: 14px;
+        padding-top: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .management-profile {
+        min-width: 0;
+        flex: 1;
+    }
+    .management-logout-button {
+        width: auto;
+        margin-top: 0;
+    }
+    .management-main {
+        padding: 24px 16px 38px;
+    }
+    .management-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .management-header-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .management-primary-button,
+    .management-secondary-button {
+        width: 100%;
+    }
+    .management-primary-button {
+        width: 100%;
+    }
+    .management-stats {
+        grid-template-columns: 1fr;
+    }
+    .management-stat-card {
+        min-height: 128px;
+    }
+    .management-panel-header {
+        min-height: auto;
+        padding: 16px;
+    }
+    .management-case-item {
+        padding: 14px 16px;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .management-case-action {
+        width: max-content;
+    }
+}
+
+
+/* =========================================================
+   Telas muito pequenas
+   ========================================================= */
+
+@media ( max-width: 420px) {
+    .management-profile-avatar {
+        display: none;
+    }
+    .management-header h1 {
+        font-size: 27px;
+    }
+    .management-stat-number {
+        font-size: 28px;
+    }
+    .management-panel-header {
+        align-items: flex-start;
+    }
+}

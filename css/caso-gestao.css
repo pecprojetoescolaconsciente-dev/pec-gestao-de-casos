@@ -1,0 +1,1078 @@
+/* =========================================================
+   PEC - GESTÃO DE CASOS
+   Página do caso - Estrutura comum
+   ========================================================= */
+
+
+/* =========================================================
+   Página
+   ========================================================= */
+
+.case-page {
+    flex: 1;
+    min-width: 0;
+    padding: 34px 42px 70px;
+    background: #f6f8f9;
+}
+
+#casePageContent {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   Carregamento
+   ========================================================= */
+
+.case-page-loading {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #6f7f86;
+    font-size: 13px;
+}
+
+.case-page-loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #dce4e7;
+    border-top-color: #315f6d;
+    border-radius: 50%;
+    animation: case-loading-spin 0.7s linear infinite;
+}
+
+@keyframes case-loading-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   Link voltar
+   ========================================================= */
+
+.case-back-link {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 22px;
+    color: #65767d;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition: color 0.16s ease;
+}
+
+.case-back-link:hover {
+    color: #285563;
+}
+
+
+/* =========================================================
+   Eyebrow
+   ========================================================= */
+
+.case-eyebrow {
+    display: block;
+    margin-bottom: 6px;
+    color: #809097;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   Cabeçalho do caso
+   ========================================================= */
+
+.case-header {
+    margin-bottom: 20px;
+}
+
+.case-header-main {
+    min-width: 0;
+}
+
+.case-title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.case-title-row h1 {
+    margin: 0;
+    color: #1f343d;
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+}
+
+.case-header-meta {
+    margin: 8px 0 0;
+    color: #7b898f;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   Badges
+   ========================================================= */
+
+.case-badge {
+    min-height: 25px;
+    padding: 4px 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.case-badge-stage {
+    border: 1px solid #cfdee2;
+    background: #edf4f5;
+    color: #365f6a;
+}
+
+.case-badge-attention {
+    border: 1px solid #ecd7aa;
+    background: #fff8e9;
+    color: #8a6520;
+}
+
+.case-badge-attention.urgent {
+    border-color: #ecc4c4;
+    background: #fff0f0;
+    color: #9a4040;
+}
+
+
+/* =========================================================
+   Alerta de risco inicial
+   ========================================================= */
+
+.case-risk-alert {
+    margin-bottom: 20px;
+    padding: 13px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    border: 1px solid #efd0ce;
+    border-radius: 10px;
+    background: #fff7f6;
+}
+
+.case-risk-alert-icon {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f5dddd;
+    color: #984c4a;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.case-risk-alert strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #763f3e;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.case-risk-alert p {
+    margin: 0;
+    color: #8a6664;
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   Fluxo
+   ========================================================= */
+
+.case-flow-panel {
+    margin-bottom: 28px;
+    padding: 17px 20px 16px;
+    border: 1px solid #e1e7e9;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.case-flow-heading {
+    margin-bottom: 13px;
+}
+
+.case-flow {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(9, minmax(74px, 1fr));
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.case-flow::before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: #e2e8ea;
+    z-index: 0;
+}
+
+.case-flow-step {
+    position: relative;
+    z-index: 1;
+    min-width: 74px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    padding: 0 5px;
+    color: #96a1a6;
+    text-align: center;
+}
+
+.case-flow-marker {
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dce4e7;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #8e9ba0;
+    font-size: 10px;
+    font-weight: 700;
+    transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.case-flow-step strong {
+    font-size: 9.5px;
+    font-weight: 650;
+    line-height: 1.3;
+}
+
+.case-flow-step.completed {
+    color: #5a7881;
+}
+
+.case-flow-step.completed .case-flow-marker {
+    border-color: #a9c5cc;
+    background: #e9f2f4;
+    color: #315d69;
+}
+
+.case-flow-step.active {
+    color: #264f5b;
+}
+
+.case-flow-step.active .case-flow-marker {
+    border-color: #315f6d;
+    background: #315f6d;
+    color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(49, 95, 109, 0.08);
+}
+
+
+/* =========================================================
+   Etapa
+   ========================================================= */
+
+.case-stage {
+    margin-top: 2px;
+}
+
+.case-stage-header {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.case-stage-header h2 {
+    margin: 0;
+    color: #223a43;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+.case-stage-header p {
+    max-width: 650px;
+    margin: 6px 0 0;
+    color: #76868c;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   Painéis comuns
+   ========================================================= */
+
+.case-panel {
+    margin-bottom: 14px;
+    padding: 19px 21px;
+    border: 1px solid #e1e7e9;
+    border-radius: 11px;
+    background: #ffffff;
+}
+
+.case-panel-header {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.case-panel-header h3 {
+    margin: 0;
+    color: #2c424a;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   Resumo do caso
+   ========================================================= */
+
+.case-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 28px;
+}
+
+.case-summary-item {
+    min-width: 0;
+}
+
+.case-summary-item span {
+    display: block;
+    margin-bottom: 4px;
+    color: #8a989e;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.case-summary-item strong {
+    display: block;
+    overflow: hidden;
+    color: #344c55;
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1.45;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   Participantes
+   ========================================================= */
+
+.case-participants-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.case-participant {
+    min-width: 0;
+    padding: 12px 13px;
+    border: 1px solid #e3e9eb;
+    border-radius: 9px;
+    background: #fafbfb;
+}
+
+.case-participant-role {
+    display: inline-flex;
+    margin-bottom: 7px;
+    padding: 3px 7px;
+    border-radius: 999px;
+    background: #edf3f4;
+    color: #5b737b;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.case-participant strong {
+    display: block;
+    margin-bottom: 2px;
+    overflow: hidden;
+    color: #2d454e;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.case-participant>span:last-child {
+    display: block;
+    overflow: hidden;
+    color: #839097;
+    font-size: 10px;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   Registro inicial
+   ========================================================= */
+
+.case-readonly-badge {
+    padding: 4px 8px;
+    border: 1px solid #e1e6e8;
+    border-radius: 999px;
+    background: #f8f9f9;
+    color: #879399;
+    font-size: 9px;
+    font-weight: 650;
+}
+
+.case-report {
+    max-width: 900px;
+    color: #4a5c63;
+    font-size: 12px;
+    line-height: 1.75;
+    white-space: pre-wrap;
+}
+
+
+/* =========================================================
+   Documentos
+   ========================================================= */
+
+.case-document-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.case-document-item {
+    min-width: 0;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: 1px solid #e2e8ea;
+    border-radius: 8px;
+    background: #fafbfb;
+}
+
+.case-document-info {
+    min-width: 0;
+}
+
+.case-document-info strong {
+    display: block;
+    overflow: hidden;
+    color: #3b5058;
+    font-size: 11px;
+    font-weight: 650;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.case-document-info span {
+    display: block;
+    margin-top: 2px;
+    color: #8a969b;
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+.case-document-open-button {
+    flex: 0 0 auto;
+    padding: 6px 9px;
+    border: 1px solid #d5e0e3;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #41636d;
+    font-family: inherit;
+    font-size: 9.5px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.case-document-open-button:hover {
+    border-color: #bacdd2;
+    background: #f3f7f8;
+}
+
+
+/* =========================================================
+   Estado vazio
+   ========================================================= */
+
+.case-empty-state {
+    padding: 12px 0;
+    color: #8d999e;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   Próxima etapa
+   ========================================================= */
+
+.case-next-stage {
+    margin-top: 18px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border: 1px solid #d9e4e6;
+    border-radius: 11px;
+    background: #f8fbfb;
+}
+
+.case-next-stage-content {
+    min-width: 0;
+}
+
+.case-next-stage h3 {
+    margin: 0;
+    color: #2a4852;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.case-next-stage p {
+    max-width: 640px;
+    margin: 5px 0 0;
+    color: #74878e;
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   Botão principal comum
+   ========================================================= */
+
+.case-primary-button {
+    min-height: 39px;
+    flex: 0 0 auto;
+    padding: 0 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 8px;
+    background: #315f6d;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(34, 76, 88, 0.12);
+    transition: background 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.case-primary-button:hover {
+    background: #285461;
+    box-shadow: 0 5px 14px rgba(34, 76, 88, 0.16);
+    transform: translateY(-1px);
+}
+
+.case-primary-button:active {
+    transform: translateY(0);
+}
+
+.case-primary-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================================
+   Histórico
+   ========================================================= */
+
+.case-history-panel {
+    margin-top: 24px;
+}
+
+.case-history {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.case-history-item {
+    position: relative;
+    padding: 0 0 17px 22px;
+    border-left: 1px solid #e0e6e8;
+}
+
+.case-history-item:last-child {
+    padding-bottom: 0;
+    border-left-color: transparent;
+}
+
+.case-history-item::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: -4px;
+    width: 7px;
+    height: 7px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: #8ca9b1;
+    box-shadow: 0 0 0 1px #ccd9dc;
+}
+
+.case-history-item strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #40555d;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.case-history-item p {
+    max-width: 820px;
+    margin: 0 0 4px;
+    color: #78878d;
+    font-size: 10.5px;
+    line-height: 1.55;
+}
+
+.case-history-item time {
+    color: #9ba5a9;
+    font-size: 9px;
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   Modal
+   ========================================================= */
+
+.case-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(29, 42, 48, 0.38);
+    backdrop-filter: blur(2px);
+}
+
+.case-modal {
+    width: min(100%, 470px);
+    max-height: calc(100vh - 44px);
+    overflow-y: auto;
+    border: 1px solid #e0e7e9;
+    border-radius: 13px;
+    background: #ffffff;
+    box-shadow: 0 18px 50px rgba(25, 45, 54, 0.18);
+}
+
+.case-modal-header {
+    padding: 18px 19px 14px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    border-bottom: 1px solid #edf0f1;
+}
+
+.case-modal-header h2 {
+    margin: 0;
+    color: #293f48;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+.case-modal-close {
+    width: 29px;
+    height: 29px;
+    flex: 0 0 29px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #859399;
+    font-family: inherit;
+    font-size: 19px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.16s ease, color 0.16s ease;
+}
+
+.case-modal-close:hover {
+    background: #f2f5f6;
+    color: #455e67;
+}
+
+.case-modal-body {
+    padding: 18px 19px;
+}
+
+.case-modal-description {
+    margin: 0 0 17px;
+    color: #76858b;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   Assumir caso
+   ========================================================= */
+
+.case-owner-self-button {
+    width: 100%;
+    min-height: 40px;
+    padding: 0 13px;
+    border: 1px solid #cbdadd;
+    border-radius: 8px;
+    background: #f4f8f8;
+    color: #315b67;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.case-owner-self-button:hover {
+    border-color: #a9c3c9;
+    background: #ecf4f5;
+}
+
+
+/* =========================================================
+   Divisor do modal
+   ========================================================= */
+
+.case-modal-divider {
+    position: relative;
+    margin: 17px 0;
+    text-align: center;
+}
+
+.case-modal-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #edf0f1;
+}
+
+.case-modal-divider span {
+    position: relative;
+    z-index: 1;
+    padding: 0 10px;
+    background: #ffffff;
+    color: #9aa5a9;
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   Campo do modal
+   ========================================================= */
+
+.case-modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.case-modal-field label {
+    color: #62747b;
+    font-size: 10px;
+    font-weight: 650;
+}
+
+.case-modal-field select {
+    width: 100%;
+    height: 39px;
+    padding: 0 11px;
+    border: 1px solid #d7e0e3;
+    border-radius: 8px;
+    outline: none;
+    background: #ffffff;
+    color: #40545c;
+    font-family: inherit;
+    font-size: 11px;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.case-modal-field select:focus {
+    border-color: #87aab2;
+    box-shadow: 0 0 0 3px rgba(49, 95, 109, 0.07);
+}
+
+
+/* =========================================================
+   Rodapé do modal
+   ========================================================= */
+
+.case-modal-footer {
+    padding: 13px 19px 17px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    border-top: 1px solid #edf0f1;
+}
+
+.case-modal-cancel-button,
+.case-modal-primary-button {
+    min-height: 36px;
+    padding: 0 12px;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.case-modal-cancel-button {
+    border: 1px solid #dbe2e4;
+    background: #ffffff;
+    color: #6e7d83;
+}
+
+.case-modal-cancel-button:hover {
+    background: #f6f8f8;
+}
+
+.case-modal-primary-button {
+    border: 1px solid #315f6d;
+    background: #315f6d;
+    color: #ffffff;
+}
+
+.case-modal-primary-button:hover {
+    background: #285461;
+}
+
+
+/* =========================================================
+   Lista de responsáveis
+   ========================================================= */
+
+.case-owner-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.case-owner-list-item {
+    width: 100%;
+    padding: 10px 11px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    border: 1px solid #e0e6e8;
+    border-radius: 8px;
+    background: #ffffff;
+    color: inherit;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.case-owner-list-item:hover {
+    border-color: #c3d4d8;
+    background: #f8fbfb;
+}
+
+.case-owner-list-item.current {
+    border-color: #c5d8dc;
+    background: #eef5f6;
+    cursor: default;
+}
+
+.case-owner-list-person {
+    min-width: 0;
+}
+
+.case-owner-list-person strong {
+    display: block;
+    overflow: hidden;
+    color: #3b5159;
+    font-size: 11px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.case-owner-list-person span {
+    display: block;
+    margin-top: 2px;
+    color: #879399;
+    font-size: 9.5px;
+}
+
+.case-owner-list-status {
+    flex: 0 0 auto;
+    color: #71858c;
+    font-size: 9px;
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   Acessibilidade
+   ========================================================= */
+
+.case-primary-button:focus-visible,
+.case-document-open-button:focus-visible,
+.case-modal-close:focus-visible,
+.case-owner-self-button:focus-visible,
+.case-modal-cancel-button:focus-visible,
+.case-modal-primary-button:focus-visible,
+.case-owner-list-item:focus-visible {
+    outline: 2px solid #7ca1aa;
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   Tablet
+   ========================================================= */
+
+@media ( max-width: 1100px) {
+    .case-page {
+        padding: 30px 28px 60px;
+    }
+    .case-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .case-participants-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .case-flow {
+        grid-template-columns: repeat(9, minmax(92px, 1fr));
+    }
+}
+
+
+/* =========================================================
+   Mobile grande
+   ========================================================= */
+
+@media ( max-width: 760px) {
+    .case-page {
+        padding: 24px 18px 50px;
+    }
+    .case-title-row h1 {
+        font-size: 23px;
+    }
+    .case-stage-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .case-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 18px;
+    }
+    .case-participants-grid {
+        grid-template-columns: 1fr;
+    }
+    .case-document-grid {
+        grid-template-columns: 1fr;
+    }
+    .case-next-stage {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .case-primary-button {
+        align-self: flex-end;
+    }
+}
+
+
+/* =========================================================
+   Mobile pequeno
+   ========================================================= */
+
+@media ( max-width: 480px) {
+    .case-page {
+        padding: 20px 14px 42px;
+    }
+    .case-panel {
+        padding: 17px 16px;
+    }
+    .case-flow-panel {
+        padding: 16px 14px;
+    }
+    .case-summary-grid {
+        grid-template-columns: 1fr;
+    }
+    .case-next-stage {
+        padding: 16px;
+    }
+    .case-primary-button {
+        width: 100%;
+    }
+    .case-modal-backdrop {
+        padding: 12px;
+    }
+    .case-modal {
+        width: 100%;
+    }
+    .case-modal-footer {
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,477 @@
+/* =========================================================
+   PEC - GESTÃO DE CASOS
+   Meus registros
+   ========================================================= */
+
+
+/* =========================================================
+   Estrutura
+   ========================================================= */
+
+body {
+    background: #f5f8f9;
+}
+
+.main-content {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   Cabeçalho
+   ========================================================= */
+
+.records-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.records-eyebrow {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: var(--pec-primary);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.records-header h1 {
+    margin: 0 0 8px;
+    color: var(--pec-text);
+    font-size: 2rem;
+    line-height: 1.1;
+}
+
+.records-header p {
+    max-width: 620px;
+    margin: 0;
+    color: var(--pec-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   Botão nova situação
+   ========================================================= */
+
+.new-record-button {
+    flex: 0 0 auto;
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 11px;
+    background: var(--pec-primary);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.new-record-button span {
+    font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   Ferramentas
+   ========================================================= */
+
+.records-tools {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.records-search {
+    min-width: 0;
+    flex: 1;
+    position: relative;
+}
+
+.records-search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--pec-text-secondary);
+    pointer-events: none;
+}
+
+.records-search input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 16px 0 42px;
+    border: 1px solid var(--pec-border);
+    border-radius: 12px;
+    background: #ffffff;
+    color: var(--pec-text);
+    font: inherit;
+    outline: none;
+}
+
+.records-search input:focus {
+    border-color: var(--pec-primary);
+    box-shadow: 0 0 0 3px rgba(22, 59, 97, 0.08);
+}
+
+
+/* =========================================================
+   Filtros
+   ========================================================= */
+
+.records-filters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+}
+
+.filter-button {
+    min-height: 40px;
+    padding: 0 14px;
+    border: 1px solid var(--pec-border);
+    border-radius: 10px;
+    background: #ffffff;
+    color: var(--pec-text-secondary);
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.filter-button.active {
+    border-color: var(--pec-primary);
+    background: var(--pec-primary-light);
+    color: var(--pec-primary);
+}
+
+
+/* =========================================================
+   Resumo
+   ========================================================= */
+
+.records-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px 0;
+}
+
+.records-summary div {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+}
+
+.records-summary strong {
+    color: var(--pec-primary);
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.records-summary span {
+    color: var(--pec-text-secondary);
+    font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   Lista
+   ========================================================= */
+
+.records-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+/* =========================================================
+   Card de caso
+   ========================================================= */
+
+.record-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px;
+    padding: 18px 20px;
+    border: 1px solid var(--pec-border);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(31, 52, 72, 0.035);
+}
+
+.record-main {
+    min-width: 0;
+}
+
+.record-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.record-number {
+    color: var(--pec-text);
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.record-date {
+    color: var(--pec-text-secondary);
+    font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   Status
+   ========================================================= */
+
+.record-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 9px;
+    border-radius: 999px;
+    font-size: 0.66rem;
+    font-weight: 800;
+}
+
+.record-status.em-andamento {
+    background: #edf4f8;
+    color: var(--pec-primary);
+}
+
+.record-status.concluido {
+    background: #eaf5f1;
+    color: var(--pec-success);
+}
+
+
+/* =========================================================
+   Pessoas envolvidas
+   ========================================================= */
+
+.record-people {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.record-person {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.record-person span {
+    color: var(--pec-text-secondary);
+    font-size: 0.7rem;
+}
+
+.record-person strong {
+    overflow: hidden;
+    color: var(--pec-text);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   Alertas
+   ========================================================= */
+
+.record-flags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.record-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.record-flag.risk {
+    background: #fff1ec;
+    color: #a34a2d;
+}
+
+.record-flag.evidence {
+    background: #edf4f8;
+    color: var(--pec-primary);
+}
+
+
+/* =========================================================
+   Ação do card
+   ========================================================= */
+
+.record-actions {
+    display: flex;
+    align-items: center;
+}
+
+.view-record-button {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 14px;
+    border: 1px solid var(--pec-border);
+    border-radius: 10px;
+    background: #ffffff;
+    color: var(--pec-primary);
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.view-record-button:hover {
+    border-color: var(--pec-primary);
+    background: var(--pec-primary-light);
+}
+
+
+/* =========================================================
+   Estados
+   ========================================================= */
+
+.records-state {
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 30px;
+    border: 1px solid var(--pec-border);
+    border-radius: 18px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.records-state strong {
+    color: var(--pec-text);
+    font-size: 0.92rem;
+}
+
+.records-state span {
+    color: var(--pec-text-secondary);
+    font-size: 0.78rem;
+}
+
+.state-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    border-radius: 50%;
+    background: #fff1f1;
+    color: #b65353;
+    font-weight: 800;
+}
+
+.state-icon.success {
+    background: #eaf5f1;
+    color: var(--pec-success);
+}
+
+.records-loader {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 4px;
+    border: 3px solid #e7ecef;
+    border-top-color: var(--pec-primary);
+    border-radius: 50%;
+    animation: records-spin 0.8s linear infinite;
+}
+
+@keyframes records-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   Botões dos estados
+   ========================================================= */
+
+.records-state button {
+    min-height: 40px;
+    margin-top: 8px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--pec-primary);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   Responsividade
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .records-tools {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .records-filters {
+        overflow-x: auto;
+        padding-bottom: 3px;
+    }
+    .record-card {
+        grid-template-columns: 1fr;
+    }
+    .record-actions {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 680px) {
+    .records-header {
+        flex-direction: column;
+    }
+    .new-record-button {
+        width: 100%;
+    }
+    .record-people {
+        grid-template-columns: 1fr;
+    }
+    .record-actions {
+        justify-content: stretch;
+    }
+    .view-record-button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestão | PEC</title>
+
+
+    <link rel="stylesheet" href="../css/base.css">
+
+    <link rel="stylesheet" href="../css/dashboard-gestao.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="management-layout">
+
+
+        <!-- =====================================================
+             Sidebar
+             ===================================================== -->
+
+        <aside class="management-sidebar">
+
+
+            <div class="management-sidebar-top">
+
+
+                <a href="./dashboard.html" class="management-logo">
+
+                    <img src="../assets/img/logo-pec-h.png" alt="PEC">
+
+                </a>
+
+
+                <nav class="management-nav">
+
+
+                    <a href="./dashboard.html" class="management-nav-item active">
+
+                        <span class="management-nav-icon">
+                            ◫
+                        </span>
+
+                        <span>
+                            Visão geral
+                        </span>
+
+                    </a>
+
+
+                    <a href="./casos.html" class="management-nav-item">
+
+                        <span class="management-nav-icon">
+                            ▤
+                        </span>
+
+                        <span>
+                            Casos
+                        </span>
+
+                    </a>
+
+
+                </nav>
+
+
+            </div>
+
+
+            <div class="management-sidebar-bottom">
+
+
+                <div class="management-profile">
+
+
+                    <div class="management-profile-avatar" id="managementProfileAvatar">
+                        G
+                    </div>
+
+
+                    <div class="management-profile-info">
+
+                        <strong id="managementProfileName">
+                            Carregando...
+                        </strong>
+
+                        <span id="managementProfileRole">
+                            Gestão
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <button type="button" class="management-logout-button" id="logoutButton">
+                    Sair
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =====================================================
+             Conteúdo principal
+             ===================================================== -->
+
+        <main class="management-main">
+
+
+            <!-- =================================================
+                 Cabeçalho
+                 ================================================= -->
+
+            <header class="management-header">
+
+
+                <div>
+
+                    <span class="management-eyebrow">
+                        Gestão de casos
+                    </span>
+
+
+                    <h1>
+                        Visão geral
+                    </h1>
+
+
+                    <p id="managementUser">
+                        Carregando acesso...
+                    </p>
+
+                </div>
+
+
+                <div class="management-header-actions">
+
+                    <a href="./casos.html" class="management-secondary-button">
+                        Ver todos os casos
+                    </a>
+
+                    <a href="../professor/nova-situacao.html" class="management-primary-button">
+                        + Nova denúncia
+                    </a>
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- =================================================
+                 Resumo
+                 ================================================= -->
+
+            <section class="management-stats">
+
+
+                <article class="management-stat-card">
+
+                    <div class="management-stat-header">
+
+                        <span class="management-stat-label">
+                            Aguardando triagem
+                        </span>
+
+                        <span class="management-stat-indicator">
+                            •
+                        </span>
+
+                    </div>
+
+
+                    <strong class="management-stat-number" id="statAguardandoTriagem">
+                        —
+                    </strong>
+
+
+                    <span class="management-stat-help">
+                        Registros que ainda precisam ser avaliados
+                    </span>
+
+                </article>
+
+
+
+                <article class="management-stat-card">
+
+                    <div class="management-stat-header">
+
+                        <span class="management-stat-label">
+                            Em andamento
+                        </span>
+
+                    </div>
+
+
+                    <strong class="management-stat-number" id="statEmAndamento">
+                        —
+                    </strong>
+
+
+                    <span class="management-stat-help">
+                        Casos atualmente acompanhados
+                    </span>
+
+                </article>
+
+
+
+                <article class="management-stat-card">
+
+                    <div class="management-stat-header">
+
+                        <span class="management-stat-label">
+                            Atenção alta ou urgente
+                        </span>
+
+                    </div>
+
+
+                    <strong class="management-stat-number" id="statAtencao">
+                        —
+                    </strong>
+
+
+                    <span class="management-stat-help">
+                        Casos que exigem maior atenção
+                    </span>
+
+                </article>
+
+
+
+                <article class="management-stat-card">
+
+                    <div class="management-stat-header">
+
+                        <span class="management-stat-label">
+                            Prazos próximos
+                        </span>
+
+                    </div>
+
+
+                    <strong class="management-stat-number" id="statPrazos">
+                        —
+                    </strong>
+
+
+                    <span class="management-stat-help">
+                        Ações com prazo próximo
+                    </span>
+
+                </article>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 Área principal
+                 ================================================= -->
+
+            <section class="management-content-grid">
+
+
+                <!-- =============================================
+                     Aguardando triagem
+                     ============================================= -->
+
+                <div class="management-panel management-panel-main">
+
+
+                    <div class="management-panel-header">
+
+
+                        <div>
+
+                            <span class="management-section-eyebrow">
+                                Entrada
+                            </span>
+
+                            <h2>
+                                Aguardando triagem
+                            </h2>
+
+                        </div>
+
+
+                        <a href="./casos.html" class="management-text-link">
+                            Ver todos
+                        </a>
+
+
+                    </div>
+
+
+                    <div class="management-case-list" id="pendingCases">
+
+                        <div class="management-empty-state">
+
+                            <span class="management-empty-icon">
+                                ◫
+                            </span>
+
+                            <strong>
+                                Carregando casos...
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =============================================
+                     Resumo lateral
+                     ============================================= -->
+
+                <aside class="management-side-column">
+
+
+                    <div class="management-panel">
+
+
+                        <div class="management-panel-header">
+
+
+                            <div>
+
+                                <span class="management-section-eyebrow">
+                                    Prioridade
+                                </span>
+
+                                <h2>
+                                    Atenção necessária
+                                </h2>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="management-attention-list" id="attentionCases">
+
+                            <div class="management-empty-state small">
+
+                                <strong>
+                                    Carregando...
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </aside>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 Casos recentes
+                 ================================================= -->
+
+            <section class="management-panel management-recent-panel">
+
+
+                <div class="management-panel-header">
+
+
+                    <div>
+
+                        <span class="management-section-eyebrow">
+                            Atividade
+                        </span>
+
+                        <h2>
+                            Casos recentes
+                        </h2>
+
+                    </div>
+
+
+                    <a href="./casos.html" class="management-text-link">
+                        Ver todos os casos
+                    </a>
+
+
+                </div>
+
+
+                <div class="management-case-list" id="recentCases">
+
+                    <div class="management-empty-state">
+
+                        <strong>
+                            Carregando casos...
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =========================================================
+         Scripts
+         ========================================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../js/config/supabase.js"></script>
+
+    <script src="../js/auth/sessao.js"></script>
+
+    <script src="../js/pages/dashboard-gestao.js"></script>
+
+
+</body>
+
+</html>

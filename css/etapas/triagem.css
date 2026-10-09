@@ -1,0 +1,1106 @@
+/* =========================================================
+   PEC - GESTÃO DE CASOS
+   ETAPA 2 - TRIAGEM
+   ========================================================= */
+
+
+/* =========================================================
+   Estrutura da etapa
+   ========================================================= */
+
+.triage-stage {
+    width: 100%;
+}
+
+.triage-stage-header {
+    margin-bottom: 18px;
+}
+
+.triage-stage-status {
+    flex: 0 0 auto;
+    padding: 5px 9px;
+    border: 1px solid #cfe0e3;
+    border-radius: 999px;
+    background: #eff6f7;
+    color: #446872;
+    font-size: 9.5px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   Contexto da triagem
+   ========================================================= */
+
+.triage-context {
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.triage-context>div {
+    min-width: 0;
+    min-height: 82px;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #dde6e8;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.triage-context>div+div {
+    margin-left: 0;
+    padding-left: 14px;
+    border-left: 1px solid #dde6e8;
+}
+
+
+/* =========================================================
+   Responsável
+   ========================================================= */
+
+.triage-context-owner {
+    grid-column: 1 / -1;
+    min-height: 74px;
+    position: relative;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 13px;
+    padding-right: 170px !important;
+}
+
+.triage-owner-avatar {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #e8f1f3;
+    color: #315f6d;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.triage-owner-info {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.triage-owner-info strong {
+    max-width: 100%;
+    margin-top: 1px;
+    overflow: hidden;
+    color: #314850;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.triage-owner-info small {
+    margin-top: 1px;
+    color: #849298;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.triage-link-button {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #557984;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.16s ease;
+}
+
+.triage-link-button:hover {
+    color: #285866;
+    text-decoration-color: currentColor;
+}
+
+
+/* =========================================================
+   Labels
+   ========================================================= */
+
+.triage-label,
+.triage-field-label {
+    display: block;
+    color: #72838a;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   Controles do topo
+   ========================================================= */
+
+.triage-context-control {
+    min-height: 64px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.triage-context-control select {
+    width: 180px;
+    max-width: 50%;
+    height: 38px;
+    padding: 0 11px;
+    border: 1px solid #d6e0e3;
+    border-radius: 8px;
+    outline: none;
+    background: #ffffff;
+    color: #40545c;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.triage-context-control select:focus {
+    border-color: #82a6af;
+    box-shadow: 0 0 0 3px rgba(49, 95, 109, 0.06);
+}
+
+
+/* =========================================================
+   Sim / Não
+   ========================================================= */
+
+.triage-segmented {
+    width: fit-content;
+    padding: 3px;
+    display: inline-flex;
+    gap: 2px;
+    border: 1px solid #d8e2e4;
+    border-radius: 8px;
+    background: #f5f7f8;
+}
+
+.triage-segmented-option {
+    cursor: pointer;
+}
+
+.triage-segmented-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.triage-segmented-option span {
+    min-width: 54px;
+    height: 32px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: #64777e;
+    font-size: 11px;
+    font-weight: 700;
+    transition: background 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.triage-segmented-option input:checked+span {
+    background: #ffffff;
+    color: #315d69;
+    box-shadow: 0 1px 3px rgba(36, 62, 71, 0.1);
+}
+
+.triage-segmented-option input:focus-visible+span {
+    outline: 2px solid #82a6af;
+    outline-offset: 1px;
+}
+
+
+/* =========================================================
+   Seções
+   ========================================================= */
+
+.triage-section {
+    margin-bottom: 14px;
+    padding: 18px 19px;
+    border: 1px solid #e0e7e9;
+    border-radius: 11px;
+    background: #ffffff;
+}
+
+.triage-section-header {
+    margin-bottom: 14px;
+}
+
+.triage-section-header h3 {
+    margin: 0;
+    color: #30474f;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.triage-section-header p {
+    max-width: 700px;
+    margin: 4px 0 0;
+    color: #869399;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   Fatores identificados
+   ========================================================= */
+
+.triage-section:has(#triageRiskFactorsSelect) {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.1fr);
+    column-gap: 32px;
+    row-gap: 12px;
+    align-items: center;
+    padding: 18px 20px;
+}
+
+.triage-section:has(#triageRiskFactorsSelect) .triage-section-header {
+    margin-bottom: 0;
+}
+
+.triage-section:has(#triageRiskFactorsSelect) .triage-section-header h3 {
+    font-size: 14px;
+}
+
+.triage-section:has(#triageRiskFactorsSelect) .triage-section-header p {
+    margin-top: 4px;
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.triage-section:has(#triageRiskFactorsSelect) .triage-field-medium {
+    width: 100%;
+    max-width: none;
+}
+
+.triage-section:has(#triageRiskFactorsSelect) .triage-field label {
+    font-size: 11px;
+}
+
+#triageRiskFactorsSelect {
+    height: 39px;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+#triageRiskFactorsTags {
+    grid-column: 1 / -1;
+    margin-top: 2px;
+}
+
+#triageRiskFactorOtherWrap {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   Campos
+   ========================================================= */
+
+.triage-field {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.triage-field-medium {
+    max-width: 560px;
+}
+
+.triage-field label,
+.triage-conditional-field label {
+    color: #63767d;
+    font-size: 11px;
+    font-weight: 650;
+    line-height: 1.35;
+}
+
+.triage-required {
+    color: #a65757;
+}
+
+
+/* =========================================================
+   Inputs / Selects
+   ========================================================= */
+
+.triage-field select,
+.triage-field input[type="text"],
+.triage-field input[type="date"],
+.triage-conditional-field input {
+    width: 100%;
+    height: 37px;
+    padding: 0 10px;
+    border: 1px solid #d7e0e3;
+    border-radius: 7px;
+    outline: none;
+    background: #ffffff;
+    color: #40545c;
+    font-family: inherit;
+    font-size: 10.5px;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.triage-field select {
+    cursor: pointer;
+}
+
+.triage-field select:hover,
+.triage-field input:hover,
+.triage-conditional-field input:hover {
+    border-color: #c5d3d7;
+}
+
+.triage-field select:focus,
+.triage-field input:focus,
+.triage-conditional-field input:focus {
+    border-color: #82a6af;
+    box-shadow: 0 0 0 3px rgba(49, 95, 109, 0.06);
+}
+
+
+/* =========================================================
+   Textareas
+   ========================================================= */
+
+.triage-field textarea {
+    width: 100%;
+    min-height: 115px;
+    padding: 11px 12px;
+    resize: vertical;
+    border: 1px solid #d7e0e3;
+    border-radius: 8px;
+    outline: none;
+    background: #ffffff;
+    color: #40545c;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.6;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.triage-field textarea:hover {
+    border-color: #c5d3d7;
+}
+
+.triage-field textarea:focus {
+    border-color: #82a6af;
+    box-shadow: 0 0 0 3px rgba(49, 95, 109, 0.06);
+}
+
+.triage-field textarea::placeholder,
+.triage-field input::placeholder,
+.triage-conditional-field input::placeholder {
+    color: #a2adb1;
+}
+
+
+/* =========================================================
+   Grid técnico
+   ========================================================= */
+
+.triage-technical-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+
+/* =========================================================
+   Providências / Encaminhamentos
+   ========================================================= */
+
+.triage-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+
+/* =========================================================
+   Chips
+   ========================================================= */
+
+.triage-tags {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.triage-tags:empty {
+    display: none;
+}
+
+.triage-tag {
+    max-width: 100%;
+    min-height: 27px;
+    padding: 4px 5px 4px 9px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #cfe0e4;
+    border-radius: 999px;
+    background: #eef6f7;
+    color: #335d68;
+    font-size: 9.5px;
+    font-weight: 650;
+    line-height: 1.2;
+}
+
+.triage-tag-text {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.triage-tag-remove {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #78929a;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.triage-tag-remove:hover {
+    background: #dcebed;
+    color: #285866;
+}
+
+
+/* =========================================================
+   Campo condicional - Outro
+   ========================================================= */
+
+.triage-conditional-field {
+    width: 100%;
+    margin-top: 4px;
+    padding: 10px 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid #e2e8ea;
+    border-radius: 8px;
+    background: #fafcfc;
+}
+
+
+/* =========================================================
+   Documentos + Prazo
+   ========================================================= */
+
+.triage-support-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: stretch;
+}
+
+.triage-support-grid>.triage-field {
+    width: 100%;
+    min-height: 105px;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    justify-content: flex-start;
+    border: 1px solid #e4eaec;
+    border-radius: 9px;
+    background: #fafcfc;
+}
+
+
+/* =========================================================
+   Upload
+   ========================================================= */
+
+.triage-upload-area {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.triage-secondary-button {
+    min-height: 38px;
+    font-size: 11px;
+    padding: 0 11px;
+    border: 1px solid #cfdbde;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #456873;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.triage-secondary-button:hover {
+    border-color: #afc6cc;
+    background: #f4f8f9;
+}
+
+.triage-upload-help {
+    color: #939fa4;
+    font-size: 10.5px;
+}
+
+
+/* =========================================================
+   Lista de documentos
+   ========================================================= */
+
+.triage-document-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.triage-document-list:empty {
+    display: none;
+}
+
+.triage-document-item {
+    width: 100%;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: 1px solid #e1e8ea;
+    border-radius: 7px;
+    background: #fafbfb;
+}
+
+.triage-document-info {
+    min-width: 0;
+}
+
+.triage-document-info strong {
+    display: block;
+    overflow: hidden;
+    color: #41565e;
+    font-size: 9.5px;
+    font-weight: 650;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.triage-document-info span {
+    display: block;
+    margin-top: 2px;
+    color: #8b999e;
+    font-size: 8.5px;
+}
+
+.triage-document-actions {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 5px;
+}
+
+.triage-document-button {
+    padding: 4px 7px;
+    border: 1px solid #d8e1e3;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #61777f;
+    font-family: inherit;
+    font-size: 8.5px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   Prazo
+   ========================================================= */
+
+.triage-deadline-field {
+    width: 100%;
+    max-width: none;
+}
+
+.triage-deadline-field input[type="date"] {
+    width: 100%;
+    max-width: none;
+    height: 39px;
+    font-size: 12px;
+}
+
+.triage-deadline-field small {
+    max-width: 100%;
+    color: #87969c;
+    font-size: 10.5px;
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   Mensagens
+   ========================================================= */
+
+.triage-form-message,
+.triage-inline-message {
+    font-size: 9.5px;
+    line-height: 1.5;
+}
+
+.triage-form-message {
+    display: none;
+    margin: 10px 0;
+    padding: 9px 11px;
+    border-radius: 7px;
+}
+
+.triage-form-message.show {
+    display: block;
+    border: 1px solid #edd1d1;
+    background: #fff6f6;
+    color: #8b4e4e;
+}
+
+.triage-form-message.success {
+    display: block;
+    border: 1px solid #cfe2d6;
+    background: #f3faf5;
+    color: #49735a;
+}
+
+.triage-inline-message {
+    min-height: 0;
+    color: #8b4e4e;
+}
+
+
+/* =========================================================
+   Rodapé da Triagem
+   ========================================================= */
+
+.triage-form-footer {
+    margin-top: 15px;
+    padding: 15px 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid #dce6e8;
+    border-radius: 10px;
+    background: #f8fbfb;
+}
+
+.triage-form-footer-info {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.triage-form-footer-info strong {
+    color: #829197;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.triage-form-footer-info span {
+    color: #3d5962;
+    font-size: 11px;
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   Botão concluir
+   ========================================================= */
+
+.triage-primary-button {
+    min-height: 37px;
+    flex: 0 0 auto;
+    padding: 0 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: 0;
+    border-radius: 7px;
+    background: #315f6d;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 3px 9px rgba(40, 78, 89, 0.1);
+    transition: background 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.triage-primary-button:hover {
+    background: #285461;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(40, 78, 89, 0.14);
+}
+
+.triage-primary-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================================
+   Focus
+   ========================================================= */
+
+.triage-link-button:focus-visible,
+.triage-secondary-button:focus-visible,
+.triage-tag-remove:focus-visible,
+.triage-document-button:focus-visible,
+.triage-primary-button:focus-visible {
+    outline: 2px solid #82a6af;
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   RESPONSIVO DA TRIAGEM
+   ========================================================= */
+
+
+/* =========================================================
+   Tablet
+   ========================================================= */
+
+@media (max-width: 980px) {
+    .triage-actions-grid,
+    .triage-support-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media (max-width: 720px) {
+    /* ---------------------------------------------------------
+       Cards superiores
+       --------------------------------------------------------- */
+    .triage-context {
+        width: 100%;
+        margin: 0 0 14px;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        box-sizing: border-box;
+    }
+    .triage-context>div {
+        width: 100%;
+        min-width: 0;
+        min-height: 68px;
+        margin: 0;
+        padding: 13px 14px !important;
+        box-sizing: border-box;
+        border: 1px solid #dde6e8;
+        border-radius: 10px;
+        background: #ffffff;
+    }
+    .triage-context>div+div {
+        margin: 0;
+        padding: 13px 14px !important;
+        border-left: 1px solid #dde6e8;
+    }
+    /* ---------------------------------------------------------
+       Responsável
+       --------------------------------------------------------- */
+    .triage-context-owner {
+        grid-column: auto;
+        min-height: 74px !important;
+        position: relative;
+        display: grid !important;
+        grid-template-columns: 44px minmax(0, 1fr) auto;
+        align-items: center;
+        column-gap: 12px;
+        padding: 13px 14px !important;
+    }
+    .triage-owner-avatar {
+        width: 44px;
+        height: 44px;
+        flex: none;
+        font-size: 15px;
+    }
+    .triage-owner-info {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .triage-owner-info strong {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    .triage-owner-info small {
+        margin-top: 2px;
+        font-size: 10.5px;
+    }
+    .triage-link-button {
+        position: static !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        transform: none !important;
+        justify-self: end;
+        white-space: nowrap;
+        font-size: 10.5px;
+    }
+    /* ---------------------------------------------------------
+       Risco imediato / nível
+       --------------------------------------------------------- */
+    .triage-context-control {
+        min-height: 64px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+    }
+    .triage-context-control .triage-label {
+        flex: 1;
+        font-size: 11px;
+    }
+    .triage-segmented {
+        width: 150px;
+        flex: 0 0 150px;
+        box-sizing: border-box;
+        display: flex;
+    }
+    .triage-segmented-option {
+        flex: 1;
+    }
+    .triage-segmented-option span {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    .triage-context-control select {
+        width: 150px;
+        max-width: 58%;
+        height: 39px;
+        font-size: 12px;
+    }
+    /* ---------------------------------------------------------
+       Fatores identificados
+       --------------------------------------------------------- */
+    .triage-section:has(#triageRiskFactorsSelect) {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 12px;
+        padding: 16px 14px;
+    }
+    .triage-section:has(#triageRiskFactorsSelect) .triage-section-header {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .triage-section:has(#triageRiskFactorsSelect) .triage-field-medium {
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+    }
+    #triageRiskFactorsSelect {
+        width: 100%;
+        max-width: 100%;
+    }
+    #triageRiskFactorsTags,
+    #triageRiskFactorOtherWrap {
+        grid-column: 1;
+        width: 100%;
+    }
+    /* ---------------------------------------------------------
+       Demais grids
+       --------------------------------------------------------- */
+    .triage-technical-grid,
+    .triage-actions-grid,
+    .triage-support-grid {
+        grid-template-columns: 1fr;
+    }
+    .triage-deadline-field {
+        max-width: none;
+    }
+    /* ---------------------------------------------------------
+       Rodapé
+       --------------------------------------------------------- */
+    .triage-form-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+/* =========================================================
+   Mobile pequeno
+   ========================================================= */
+
+@media (max-width: 480px) {
+    .triage-section {
+        padding: 16px 14px;
+    }
+    .triage-field-medium {
+        max-width: none;
+    }
+    .triage-primary-button {
+        width: 100%;
+    }
+    .triage-form-footer {
+        padding: 14px;
+    }
+}
+
+
+/* =========================================================
+   Outros fatores de risco
+   ========================================================= */
+
+.triage-other-factor-entry {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.triage-other-factor-entry input {
+    flex: 1;
+    min-width: 0;
+    height: 39px;
+    font-size: 12px;
+}
+
+.triage-other-factor-entry .triage-secondary-button {
+    flex: 0 0 auto;
+    height: 39px;
+    padding: 0 16px;
+}
+
+#triageRiskFactorOtherTags {
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   DOCUMENTOS SALVOS DA TRIAGEM
+   ========================================================= */
+
+.triage-document-open {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 0;
+    background: transparent;
+    color: #244c5a;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.triage-document-open::before {
+    content: "↗";
+    flex: 0 0 auto;
+    font-size: 13px;
+    font-weight: 700;
+    color: #6f8d96;
+}
+
+.triage-document-open:hover {
+    text-decoration: underline;
+}
+
+.triage-document-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.triage-document-open {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+}
+
+.triage-document-remove {
+    flex: 0 0 auto;
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #789099;
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.triage-document-remove:hover {
+    background: #eef4f5;
+    color: #244c5a;
+}

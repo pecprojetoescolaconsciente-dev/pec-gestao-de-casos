@@ -1,0 +1,1374 @@
+/* =========================================================
+   PEC - GESTÃO DE CASOS
+   Detalhes do caso
+   ========================================================= */
+
+
+/* =========================================================
+   Estado de carregamento / erro
+   ========================================================= */
+
+.case-state {
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.case-state strong {
+    color: var(--pec-text);
+    font-size: 0.95rem;
+}
+
+.case-state span {
+    color: var(--pec-text-secondary);
+    font-size: 0.8rem;
+}
+
+.case-loader {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 6px;
+    border: 3px solid #e6ecef;
+    border-top-color: var(--pec-primary);
+    border-radius: 50%;
+    animation: case-spin 0.8s linear infinite;
+}
+
+@keyframes case-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.case-state-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    border-radius: 50%;
+    background: #fff0ed;
+    color: #a94f34;
+    font-weight: 800;
+}
+
+.case-error button {
+    min-height: 42px;
+    margin-top: 10px;
+    padding: 0 15px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--pec-primary);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   Cabeçalho
+   ========================================================= */
+
+.case-header {
+    margin-bottom: 24px;
+}
+
+.back-records-button {
+    margin-bottom: 18px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--pec-text-secondary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.back-records-button:hover {
+    color: var(--pec-primary);
+}
+
+.case-title-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.case-eyebrow {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--pec-primary);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.case-title-row h1 {
+    margin: 0;
+    color: var(--pec-text);
+    font-size: 2rem;
+    line-height: 1.1;
+}
+
+.case-header-description {
+    max-width: 650px;
+    margin: 9px 0 0;
+    color: var(--pec-text-secondary);
+    font-size: 0.86rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   Status
+   ========================================================= */
+
+.case-status {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: var(--pec-primary-light);
+    color: var(--pec-primary);
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   Resumo superior
+   ========================================================= */
+
+.case-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.case-summary-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 17px 18px;
+    border: 1px solid var(--pec-border);
+    border-radius: 15px;
+    background: #ffffff;
+}
+
+.case-summary-card span {
+    color: var(--pec-text-secondary);
+    font-size: 0.7rem;
+}
+
+.case-summary-card strong {
+    overflow: hidden;
+    color: var(--pec-text);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   Alerta de risco
+   ========================================================= */
+
+.case-risk-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 22px;
+    padding: 16px 18px;
+    border: 1px solid #efc9bc;
+    border-radius: 14px;
+    background: #fff5f1;
+    color: #98472f;
+}
+
+.case-risk-icon {
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ffe5dc;
+    font-weight: 900;
+}
+
+.case-risk-alert strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+}
+
+.case-risk-alert p {
+    margin: 0;
+    font-size: 0.76rem;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   Seções
+   ========================================================= */
+
+.case-section {
+    margin-bottom: 18px;
+    padding: 22px;
+    border: 1px solid var(--pec-border);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(31, 52, 72, 0.025);
+}
+
+.case-section-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.section-kicker {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--pec-primary);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.case-section-heading h2 {
+    margin: 0;
+    color: var(--pec-text);
+    font-size: 1.05rem;
+}
+
+.case-section-heading p {
+    margin: 6px 0 0;
+    color: var(--pec-text-secondary);
+    font-size: 0.76rem;
+}
+
+
+/* =========================================================
+   Informações do registro
+   ========================================================= */
+
+.case-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px 24px;
+    margin-bottom: 22px;
+}
+
+.case-info-item {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.case-info-item span {
+    color: var(--pec-text-secondary);
+    font-size: 0.7rem;
+}
+
+.case-info-item strong {
+    overflow: hidden;
+    color: var(--pec-text);
+    font-size: 0.82rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   Relato
+   ========================================================= */
+
+.case-description {
+    padding: 17px;
+    border-radius: 14px;
+    background: #f7fafb;
+}
+
+.case-description>span {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--pec-text-secondary);
+    font-size: 0.7rem;
+}
+
+.case-description p {
+    margin: 0;
+    color: var(--pec-text);
+    font-size: 0.82rem;
+    line-height: 1.65;
+    white-space: pre-line;
+}
+
+
+/* =========================================================
+   Grupos de participantes
+   ========================================================= */
+
+.participants-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.participant-group {
+    min-width: 0;
+    padding: 17px;
+    border: 1px solid var(--pec-border);
+    border-radius: 15px;
+    background: #fbfcfc;
+}
+
+.participant-group-full {
+    grid-column: 1 / -1;
+}
+
+.participant-group-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 13px;
+}
+
+.participant-group-title span {
+    color: var(--pec-text);
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.participant-group-title strong {
+    flex: 0 0 auto;
+    padding: 5px 8px;
+    border-radius: 999px;
+    background: var(--pec-primary-light);
+    color: var(--pec-primary);
+    font-size: 0.66rem;
+}
+
+
+/* =========================================================
+   Cards dos participantes
+   ========================================================= */
+
+.case-participants-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.participant-group:not(.participant-group-full) .case-participants-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.case-participant {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px;
+    border: 1px solid rgba(22, 59, 97, 0.14);
+    border-radius: 11px;
+    background: var(--pec-primary-light);
+}
+
+.case-participant-avatar {
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ffffff;
+    color: var(--pec-primary);
+    font-size: 0.68rem;
+    font-weight: 800;
+}
+
+.case-participant-info {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.case-participant-info strong,
+.case-participant-info span {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.case-participant-info strong {
+    color: var(--pec-text);
+    font-size: 0.74rem;
+}
+
+.case-participant-info span {
+    color: var(--pec-text-secondary);
+    font-size: 0.64rem;
+}
+
+
+/* =========================================================
+   Aviso sobre papéis
+   ========================================================= */
+
+.case-role-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 12px 13px;
+    border-radius: 11px;
+    background: var(--pec-primary-light);
+    color: var(--pec-text-secondary);
+}
+
+.case-role-note>span {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--pec-primary);
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 800;
+}
+
+.case-role-note p {
+    margin: 0;
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   Evidências
+   ========================================================= */
+
+.add-evidence-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--pec-primary);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.evidence-empty {
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 24px;
+    border: 1px dashed #ccd8de;
+    border-radius: 14px;
+    background: #fbfcfc;
+    text-align: center;
+}
+
+.evidence-empty-icon {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    border-radius: 50%;
+    background: var(--pec-primary-light);
+    color: var(--pec-primary);
+}
+
+.evidence-empty strong {
+    color: var(--pec-text);
+    font-size: 0.82rem;
+}
+
+.evidence-empty span {
+    max-width: 440px;
+    color: var(--pec-text-secondary);
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   Lista de evidências
+   ========================================================= */
+
+.evidence-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.evidence-item {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid var(--pec-border);
+    border-radius: 12px;
+    background: #fbfcfc;
+}
+
+.evidence-item-icon {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: var(--pec-primary-light);
+    color: var(--pec-primary);
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+.evidence-item-info {
+    min-width: 0;
+}
+
+.evidence-item-info strong,
+.evidence-item-info span {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.evidence-item-info strong {
+    color: var(--pec-text);
+    font-size: 0.74rem;
+}
+
+.evidence-item-info span {
+    margin-top: 2px;
+    color: var(--pec-text-secondary);
+    font-size: 0.64rem;
+}
+
+
+/* =========================================================
+   Timeline
+   ========================================================= */
+
+.case-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 12px;
+    padding-bottom: 22px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 17px;
+    top: 34px;
+    bottom: 0;
+    width: 2px;
+    background: #dce5e9;
+}
+
+.timeline-marker {
+    position: relative;
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #edf1f3;
+    color: var(--pec-text-secondary);
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+.timeline-item.active .timeline-marker {
+    background: #eaf5f1;
+    color: var(--pec-success);
+}
+
+.timeline-item strong {
+    display: block;
+    margin-top: 2px;
+    color: var(--pec-text);
+    font-size: 0.8rem;
+}
+
+.timeline-item span {
+    display: block;
+    margin-top: 3px;
+    color: var(--pec-text-secondary);
+    font-size: 0.66rem;
+}
+
+.timeline-item p {
+    margin: 6px 0 0;
+    color: var(--pec-text-secondary);
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   Responsividade
+   ========================================================= */
+
+@media (max-width: 950px) {
+    .case-info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .case-participants-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .evidence-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .case-title-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .case-summary-grid {
+        grid-template-columns: 1fr;
+    }
+    .case-info-grid {
+        grid-template-columns: 1fr;
+    }
+    .participants-groups {
+        grid-template-columns: 1fr;
+    }
+    .participant-group-full {
+        grid-column: auto;
+    }
+    .participant-group .case-participants-list {
+        grid-template-columns: 1fr;
+    }
+    .case-section {
+        padding: 17px;
+    }
+    .case-section-heading {
+        flex-direction: column;
+    }
+    .add-evidence-button {
+        width: 100%;
+    }
+    .evidence-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   MODAL DE EVIDÊNCIAS
+   ========================================================= */
+
+.evidence-modal[hidden] {
+    display: none;
+}
+
+.evidence-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+
+/* =========================================================
+   Fundo do modal
+   ========================================================= */
+
+.evidence-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 35, 55, 0.48);
+    backdrop-filter: blur(3px);
+}
+
+
+/* =========================================================
+   Caixa principal
+   ========================================================= */
+
+.evidence-modal-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(620px, 100%);
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    padding: 24px;
+    border: 1px solid var(--pec-border);
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 24px 70px rgba(20, 43, 64, 0.22);
+}
+
+
+/* =========================================================
+   Cabeçalho
+   ========================================================= */
+
+.evidence-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.evidence-modal-kicker {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--pec-primary);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.evidence-modal-header h2 {
+    margin: 0 0 6px;
+    color: var(--pec-text);
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.evidence-modal-header p {
+    max-width: 470px;
+    margin: 0;
+    color: var(--pec-text-secondary);
+    font-size: 0.76rem;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   Fechar
+   ========================================================= */
+
+.evidence-modal-close {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--pec-border);
+    border-radius: 50%;
+    background: #ffffff;
+    color: var(--pec-text-secondary);
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.evidence-modal-close:hover {
+    border-color: var(--pec-primary);
+    background: var(--pec-primary-light);
+    color: var(--pec-primary);
+}
+
+
+/* =========================================================
+   Etapa vinculada
+   ========================================================= */
+
+.evidence-stage-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding: 11px 13px;
+    border-radius: 11px;
+    background: #f5f8f9;
+}
+
+.evidence-stage-info span {
+    color: var(--pec-text-secondary);
+    font-size: 0.7rem;
+}
+
+.evidence-stage-info strong {
+    color: var(--pec-text);
+    font-size: 0.74rem;
+}
+
+
+/* =========================================================
+   Área de upload
+   ========================================================= */
+
+.evidence-dropzone {
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 26px;
+    border: 1.5px dashed #bdcdd5;
+    border-radius: 16px;
+    background: #fbfcfc;
+    text-align: center;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+/*
+   Essa classe será usada pelo JS
+   quando um arquivo estiver sendo
+   arrastado sobre a área.
+*/
+
+.evidence-dropzone.dragging {
+    border-color: var(--pec-primary);
+    background: var(--pec-primary-light);
+    box-shadow: 0 0 0 4px rgba(22, 59, 97, 0.06);
+}
+
+.evidence-dropzone-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    border-radius: 50%;
+    background: var(--pec-primary-light);
+    color: var(--pec-primary);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.evidence-dropzone>strong {
+    color: var(--pec-text);
+    font-size: 0.88rem;
+}
+
+.evidence-dropzone>p {
+    max-width: 360px;
+    margin: 0;
+    color: var(--pec-text-secondary);
+    font-size: 0.74rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   Botão selecionar arquivo
+   ========================================================= */
+
+.evidence-select-button {
+    min-height: 42px;
+    margin-top: 7px;
+    padding: 0 15px;
+    border: 1px solid var(--pec-primary);
+    border-radius: 10px;
+    background: #ffffff;
+    color: var(--pec-primary);
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.evidence-select-button:hover {
+    background: var(--pec-primary-light);
+}
+
+.evidence-file-help {
+    margin-top: 5px;
+    color: var(--pec-text-secondary);
+    font-size: 0.65rem;
+}
+
+
+/* =========================================================
+   Arquivo selecionado
+   ========================================================= */
+
+.evidence-selected-file {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) 32px;
+    align-items: center;
+    gap: 11px;
+    margin-top: 14px;
+    padding: 12px 13px;
+    border: 1px solid rgba(22, 59, 97, 0.18);
+    border-radius: 13px;
+    background: var(--pec-primary-light);
+}
+
+.evidence-selected-file[hidden] {
+    display: none;
+}
+
+.evidence-selected-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #ffffff;
+    color: var(--pec-primary);
+    font-size: 0.65rem;
+    font-weight: 800;
+}
+
+.evidence-selected-info {
+    min-width: 0;
+}
+
+.evidence-selected-info strong {
+    display: block;
+    overflow: hidden;
+    color: var(--pec-text);
+    font-size: 0.78rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.evidence-selected-info span {
+    display: block;
+    margin-top: 3px;
+    overflow: hidden;
+    color: var(--pec-text-secondary);
+    font-size: 0.68rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.evidence-remove-file {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--pec-text-secondary);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.evidence-remove-file:hover {
+    background: #fff0ed;
+    color: #a34a2d;
+}
+
+
+/* =========================================================
+   Mensagem de erro
+   ========================================================= */
+
+.evidence-upload-message {
+    margin-top: 12px;
+    padding: 11px 13px;
+    border: 1px solid #efc9bc;
+    border-radius: 11px;
+    background: #fff5f1;
+    color: #98472f;
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+.evidence-upload-message[hidden] {
+    display: none;
+}
+
+
+/* =========================================================
+   Informação de segurança
+   ========================================================= */
+
+.evidence-security-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin-top: 14px;
+    padding: 11px 12px;
+    border-radius: 11px;
+    background: #f4f8fa;
+}
+
+.evidence-security-note>span {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--pec-primary);
+    color: #ffffff;
+    font-size: 0.64rem;
+    font-weight: 800;
+}
+
+.evidence-security-note p {
+    margin: 1px 0 0;
+    color: var(--pec-text-secondary);
+    font-size: 0.69rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   Rodapé do modal
+   ========================================================= */
+
+.evidence-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-top: 20px;
+    padding-top: 17px;
+    border-top: 1px solid var(--pec-border);
+}
+
+.evidence-cancel-button,
+.evidence-upload-button {
+    min-height: 42px;
+    padding: 0 16px;
+    border-radius: 10px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.evidence-cancel-button {
+    border: 1px solid var(--pec-border);
+    background: #ffffff;
+    color: var(--pec-text-secondary);
+}
+
+.evidence-cancel-button:hover {
+    border-color: var(--pec-primary);
+    color: var(--pec-primary);
+}
+
+.evidence-upload-button {
+    min-width: 142px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 0;
+    background: var(--pec-primary);
+    color: #ffffff;
+}
+
+.evidence-upload-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   Spinner do envio
+   ========================================================= */
+
+.evidence-upload-spinner {
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: evidence-spin 0.7s linear infinite;
+}
+
+.evidence-upload-spinner[hidden] {
+    display: none;
+}
+
+@keyframes evidence-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media (max-width: 680px) {
+    .evidence-modal {
+        align-items: flex-end;
+        padding: 0;
+    }
+    .evidence-modal-dialog {
+        width: 100%;
+        max-height: 92vh;
+        padding: 20px;
+        border-radius: 20px 20px 0 0;
+    }
+    .evidence-dropzone {
+        min-height: 200px;
+        padding: 22px 16px;
+    }
+    .evidence-modal-footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .evidence-cancel-button,
+    .evidence-upload-button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   Evidência clicável
+   ========================================================= */
+
+.evidence-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 6px;
+    padding: 5px;
+}
+
+.evidence-open-button {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    padding: 7px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.evidence-open-button:hover {
+    background: var(--pec-primary-light);
+}
+
+.evidence-delete-button {
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--pec-text-secondary);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.evidence-delete-button:hover {
+    background: #fff0ed;
+    color: #a94f34;
+}
+
+
+/* =========================================================
+   MODAL - REMOVER EVIDÊNCIA
+   ========================================================= */
+
+.remove-evidence-modal[hidden] {
+    display: none;
+}
+
+.remove-evidence-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.remove-evidence-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 35, 55, 0.5);
+    backdrop-filter: blur(3px);
+}
+
+.remove-evidence-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(440px, 100%);
+    padding: 26px;
+    border: 1px solid #ead4cd;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 24px 70px rgba(20, 43, 64, 0.24);
+}
+
+.remove-evidence-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    background: #fff0eb;
+    color: #ad4a2e;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.remove-evidence-content h2 {
+    margin: 0;
+    color: var(--pec-text);
+    font-size: 1.12rem;
+}
+
+.remove-evidence-file-name {
+    margin: 10px 0 0;
+    padding: 10px 12px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f5f8f9;
+    color: var(--pec-text);
+    font-size: 0.74rem;
+    font-weight: 700;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.remove-evidence-description {
+    margin: 13px 0 0;
+    color: var(--pec-text-secondary);
+    font-size: 0.74rem;
+    line-height: 1.55;
+}
+
+.remove-evidence-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--pec-border);
+}
+
+.remove-evidence-cancel,
+.remove-evidence-confirm {
+    min-height: 42px;
+    padding: 0 16px;
+    border-radius: 10px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.remove-evidence-cancel {
+    border: 1px solid var(--pec-border);
+    background: #ffffff;
+    color: var(--pec-text-secondary);
+}
+
+.remove-evidence-cancel:hover {
+    border-color: var(--pec-primary);
+    color: var(--pec-primary);
+}
+
+.remove-evidence-confirm {
+    border: 0;
+    background: #b24d31;
+    color: #ffffff;
+}
+
+.remove-evidence-confirm:hover {
+    background: #963c25;
+}
+
+.remove-evidence-confirm:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+@media (max-width: 520px) {
+    .remove-evidence-modal {
+        align-items: flex-end;
+        padding: 0;
+    }
+    .remove-evidence-dialog {
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+    }
+    .remove-evidence-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .remove-evidence-cancel,
+    .remove-evidence-confirm {
+        width: 100%;
+    }
+}

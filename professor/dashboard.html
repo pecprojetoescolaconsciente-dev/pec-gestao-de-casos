@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Início | PEC Gestão de Casos</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+
+    <link rel="stylesheet" href="../css/dashboard-professor.css">
+
+</head>
+
+
+<body>
+
+    <div class="app-shell">
+
+        <!-- =================================================
+             MENU LATERAL
+             ================================================= -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-top">
+
+                <div class="sidebar-brand">
+
+                    <img src="../assets/img/logo-pec-h.png" alt="PEC">
+
+                    <span>
+                        Gestão de Casos
+                    </span>
+
+                </div>
+
+
+                <nav class="sidebar-nav">
+
+                    <button class="nav-item active" type="button">
+                        <span class="nav-icon">
+                            ⌂
+                        </span>
+
+                        <span>
+                            Início
+                        </span>
+                    </button>
+
+
+                    <button class="nav-item" type="button" id="navNovoCaso">
+                        <span class="nav-icon">
+                            ＋
+                        </span>
+
+                        <span>
+                            Nova situação
+                        </span>
+                    </button>
+
+
+                    <button class="nav-item" type="button" id="navMeusRegistros">
+                        <span class="nav-icon">
+                            ◫
+                        </span>
+
+                        <span>
+                            Meus registros
+                        </span>
+                    </button>
+
+                </nav>
+
+            </div>
+
+
+            <div class="sidebar-footer">
+
+                <div class="sidebar-user">
+
+                    <div class="user-avatar" id="userAvatar">
+                        P
+                    </div>
+
+                    <div class="sidebar-user-info">
+
+                        <strong id="sidebarUserName">
+                            Carregando...
+                        </strong>
+
+                        <span id="sidebarUserRole">
+                            Professor
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button type="button" class="logout-button" id="logoutButton">
+                    Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             CONTEÚDO
+             ================================================= -->
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div>
+
+                    <span class="topbar-eyebrow">
+                        PEC Gestão de Casos
+                    </span>
+
+                    <h1 id="welcomeTitle">
+                        Olá
+                    </h1>
+
+                    <p>
+                        Um espaço para registrar situações com cuidado, clareza e segurança.
+                    </p>
+
+                </div>
+
+
+                <div class="topbar-actions">
+
+                    <button class="profile-button" type="button">
+                        <span class="profile-avatar" id="headerAvatar">
+                            P
+                        </span>
+
+                        <span id="headerUserName" class="profile-name">
+                            Professor
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 AÇÃO PRINCIPAL
+                 ================================================= -->
+
+            <section class="hero-card">
+
+                <div class="hero-content">
+
+                    <span class="hero-label">
+                        Registro de situação
+                    </span>
+
+                    <h2>
+                        Percebeu ou recebeu uma informação que precisa de atenção?
+                    </h2>
+
+                    <p>
+                        Registre o que aconteceu. Você não precisa determinar se a situação caracteriza bullying — essa análise será conduzida pela equipe responsável.
+                    </p>
+
+
+                    <button type="button" class="primary-action" id="newCaseButton">
+                        <span class="primary-action-icon">
+                            +
+                        </span>
+
+                        Registrar nova situação
+
+                        <span class="primary-action-arrow">
+                            →
+                        </span>
+                    </button>
+
+                </div>
+
+
+                <div class="hero-visual" aria-hidden="true">
+
+                    <div class="visual-circle circle-one"></div>
+                    <div class="visual-circle circle-two"></div>
+
+                    <div class="visual-card">
+
+                        <span class="visual-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            Registro protegido
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RESUMO
+                 ================================================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Seus acompanhamentos
+                        </h2>
+
+                        <p>
+                            Uma visão rápida das situações relacionadas ao seu perfil.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <article class="stat-card">
+
+                        <span class="stat-label">
+                            Em acompanhamento
+                        </span>
+
+                        <strong class="stat-number">
+                            0
+                        </strong>
+
+                        <span class="stat-description">
+                            Situações com acompanhamento ativo
+                        </span>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-label">
+                            Aguardando você
+                        </span>
+
+                        <strong class="stat-number">
+                            0
+                        </strong>
+
+                        <span class="stat-description">
+                            Solicitações que precisam da sua atenção
+                        </span>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <span class="stat-label">
+                            Registros enviados
+                        </span>
+
+                        <strong class="stat-number" id="sentRecordsCount">
+                            0
+                        </strong>
+
+                        <span class="stat-description">
+                            Situações registradas por você
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- =================================================
+     RASCUNHO EM ANDAMENTO
+     ================================================= -->
+
+            <section class="draft-section" id="draftSection" hidden>
+
+                <article class="draft-card">
+
+                    <div class="draft-card-content">
+
+                        <span class="draft-label">
+                            Rascunho em andamento
+                        </span>
+
+                        <h2>
+                            Nova situação
+                        </h2>
+
+                        <p class="draft-summary" id="draftSummary">
+                            Registro ainda não enviado.
+                        </p>
+
+                        <span class="draft-date" id="draftUpdatedAt">
+                            Rascunho salvo
+                        </span>
+
+                    </div>
+
+
+                    <button type="button" class="draft-continue-button" id="continueDraftButton">
+                        Continuar preenchimento
+                        <span>→</span>
+                    </button>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 CONTEÚDO INFERIOR
+                 ================================================= -->
+
+            <section class="dashboard-grid">
+
+                <article class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Atividades recentes
+                            </h2>
+
+                            <p>
+                                Suas últimas movimentações aparecerão aqui.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="recentActivityContent">
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                ✓
+                            </div>
+
+                            <h3>
+                                Tudo tranquilo por aqui
+                            </h3>
+
+                            <p>
+                                Quando você registrar ou participar de uma situação, as atualizações aparecerão neste espaço.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="panel guidance-panel">
+
+                    <span class="guidance-label">
+                        Importante
+                    </span>
+
+                    <h2>
+                        Você não precisa fazer a classificação do caso.
+                    </h2>
+
+                    <p>
+                        Seu papel neste momento é registrar com clareza o que foi observado ou comunicado. A equipe gestora seguirá com a avaliação técnica.
+                    </p>
+
+
+                    <div class="guidance-tip">
+
+                        <span class="tip-icon">
+                            i
+                        </span>
+
+                        <span>
+                            Registre fatos e informações
+                            da forma mais objetiva possível.
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <footer class="page-footer">
+
+                <span>
+                    PEC Gestão de Casos
+                </span>
+
+                <span>
+                    Ambiente institucional protegido
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVEGAÇÃO MOBILE
+         ===================================================== -->
+
+    <nav class="mobile-nav">
+
+        <button type="button" class="mobile-nav-item active">
+            <span>
+                ⌂
+            </span>
+
+            Início
+        </button>
+
+
+        <button type="button" class="mobile-nav-main" id="mobileNewCaseButton">
+            <span>
+                +
+            </span>
+        </button>
+
+
+        <button type="button" class="mobile-nav-item" id="mobileRecordsButton">
+            <span>
+                ◫
+            </span>
+
+            Registros
+        </button>
+
+    </nav>
+
+
+    <!-- =====================================================
+         TOAST
+         ===================================================== -->
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <span class="toast-icon" id="toastIcon">
+            i
+        </span>
+
+        <span id="toastText"></span>
+    </div>
+
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Configuração -->
+    <script src="../js/config/supabase.js"></script>
+
+    <!-- Sessão -->
+    <script src="../js/auth/sessao.js"></script>
+
+    <!-- Dashboard -->
+    <script src="../js/pages/dashboard-professor.js"></script>
+
+</body>
+
+</html>

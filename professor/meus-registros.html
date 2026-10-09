@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Meus registros | PEC Gestão de Casos
+    </title>
+
+    <link rel="stylesheet" href="../css/base.css">
+
+    <link rel="stylesheet" href="../css/dashboard-professor.css">
+
+    <link rel="stylesheet" href="../css/meus-registros.css">
+
+</head>
+
+
+<body>
+
+    <div class="app-shell">
+
+
+        <!-- =================================================
+             MENU LATERAL
+             ================================================= -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-top">
+
+                <div class="sidebar-brand">
+
+                    <img src="../assets/img/logo-pec-h.png" alt="PEC">
+
+                    <span>
+                        Gestão de Casos
+                    </span>
+
+                </div>
+
+
+                <nav class="sidebar-nav">
+
+                    <button class="nav-item" type="button" id="navInicio">
+
+                        <span class="nav-icon">
+                            ⌂
+                        </span>
+
+                        <span>
+                            Início
+                        </span>
+
+                    </button>
+
+
+                    <button class="nav-item" type="button" id="navNovoCaso">
+
+                        <span class="nav-icon">
+                            ＋
+                        </span>
+
+                        <span>
+                            Nova situação
+                        </span>
+
+                    </button>
+
+
+                    <button class="nav-item active" type="button">
+
+                        <span class="nav-icon">
+                            ◫
+                        </span>
+
+                        <span>
+                            Meus registros
+                        </span>
+
+                    </button>
+
+                </nav>
+
+            </div>
+
+
+            <div class="sidebar-footer">
+
+                <div class="sidebar-user">
+
+                    <div class="user-avatar" id="userAvatar">
+                        P
+                    </div>
+
+
+                    <div class="sidebar-user-info">
+
+                        <strong id="sidebarUserName">
+                            Carregando...
+                        </strong>
+
+                        <span id="sidebarUserRole">
+                            Professor
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button type="button" class="logout-button" id="logoutButton">
+                    Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             CONTEÚDO PRINCIPAL
+             ================================================= -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 CABEÇALHO
+                 ================================================= -->
+
+            <header class="records-header">
+
+                <div>
+
+                    <span class="records-eyebrow">
+                        PEC Gestão de Casos
+                    </span>
+
+                    <h1>
+                        Meus registros
+                    </h1>
+
+                    <p>
+                        Consulte as situações registradas por você e acompanhe o andamento de cada caso.
+                    </p>
+
+                </div>
+
+
+
+
+            </header>
+
+
+            <!-- =================================================
+                 FERRAMENTAS
+                 ================================================= -->
+
+            <section class="records-tools">
+
+                <div class="records-search">
+
+                    <span class="records-search-icon">
+                        ⌕
+                    </span>
+
+                    <input type="search" id="recordsSearch" placeholder="Buscar por número do caso ou estudante..." autocomplete="off">
+
+                </div>
+
+
+                <div class="records-filters" id="recordsFilters">
+
+                    <button type="button" class="filter-button active" data-filter="todos">
+                        Todos
+                    </button>
+
+
+                    <button type="button" class="filter-button" data-filter="em_andamento">
+                        Em andamento
+                    </button>
+
+
+                    <button type="button" class="filter-button" data-filter="concluidos">
+                        Concluídos
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RESUMO DA LISTA
+                 ================================================= -->
+
+            <section class="records-summary">
+
+                <div>
+
+                    <strong id="recordsCount">
+                        —
+                    </strong>
+
+                    <span id="recordsCountLabel">
+                        registros encontrados
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CARREGAMENTO
+                 ================================================= -->
+
+            <section class="records-state" id="recordsLoading">
+
+                <div class="records-loader"></div>
+
+                <strong>
+                    Carregando seus registros...
+                </strong>
+
+                <span>
+                    Só um instante.
+                </span>
+
+            </section>
+
+
+            <!-- =================================================
+                 ERRO
+                 ================================================= -->
+
+            <section class="records-state error-state" id="recordsError" hidden>
+
+                <div class="state-icon">
+                    !
+                </div>
+
+                <strong>
+                    Não foi possível carregar seus registros.
+                </strong>
+
+                <span>
+                    Verifique sua conexão e tente novamente.
+                </span>
+
+                <button type="button" id="retryRecordsButton">
+                    Tentar novamente
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 LISTA DE REGISTROS
+                 ================================================= -->
+
+            <section class="records-list" id="recordsList" hidden>
+
+                <!--
+                    Os casos serão inseridos aqui
+                    pelo JavaScript.
+                -->
+
+            </section>
+
+
+            <!-- =================================================
+                 ESTADO VAZIO
+                 ================================================= -->
+
+            <section class="records-state empty-records-state" id="recordsEmpty" hidden>
+
+                <div class="state-icon success">
+                    ✓
+                </div>
+
+                <strong>
+                    Nenhum registro encontrado
+                </strong>
+
+                <span id="emptyRecordsText">
+                    Quando você enviar uma situação,
+                    ela aparecerá aqui.
+                </span>
+
+                <button type="button" id="emptyNewRecordButton">
+                    Registrar nova situação
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 RODAPÉ
+                 ================================================= -->
+
+            <footer class="page-footer">
+
+                <span>
+                    PEC Gestão de Casos
+                </span>
+
+                <span>
+                    Ambiente institucional protegido
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVEGAÇÃO MOBILE
+         ===================================================== -->
+
+    <nav class="mobile-nav">
+
+        <button type="button" class="mobile-nav-item" id="mobileHomeButton">
+
+            <span>
+                ⌂
+            </span>
+
+            Início
+
+        </button>
+
+
+        <button type="button" class="mobile-nav-main" id="mobileNewCaseButton">
+
+            <span>
+                +
+            </span>
+
+        </button>
+
+
+        <button type="button" class="mobile-nav-item active">
+
+            <span>
+                ◫
+            </span>
+
+            Registros
+
+        </button>
+
+    </nav>
+
+
+    <!-- =====================================================
+         TOAST
+         ===================================================== -->
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+
+        <span class="toast-icon">
+            i
+        </span>
+
+        <span id="toastText"></span>
+
+    </div>
+
+
+    <!-- Supabase -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- Configuração -->
+
+    <script src="../js/config/supabase.js"></script>
+
+
+    <!-- Sessão -->
+
+    <script src="../js/auth/sessao.js"></script>
+
+
+    <!-- Página -->
+
+    <script src="../js/pages/meus-registros.js"></script>
+
+</body>
+
+</html>

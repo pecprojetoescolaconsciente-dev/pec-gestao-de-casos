@@ -1,0 +1,69 @@
+/* =========================================================
+   PEC - GESTÃO DE CASOS
+   Base visual do sistema
+   ========================================================= */
+
+:root {
+    --pec-primary: #163b61;
+    --pec-primary-dark: #102e4b;
+    --pec-primary-light: #eaf2f7;
+    --pec-accent: #f2bd45;
+    --pec-accent-soft: #fff4d8;
+    --pec-background: #f7f8f7;
+    --pec-surface: #ffffff;
+    --pec-text: #253442;
+    --pec-text-secondary: #71808c;
+    --pec-border: #e3e8ec;
+    --pec-success: #39856f;
+    --pec-danger: #b55252;
+    --pec-radius-sm: 10px;
+    --pec-radius-md: 16px;
+    --pec-radius-lg: 24px;
+    --pec-shadow: 0 20px 60px rgba(31, 52, 72, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--pec-background);
+    color: var(--pec-text);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =========================================================
+   Controle global de elementos ocultos
+   ========================================================= */
+
+[hidden] {
+    display: none !important;
+}

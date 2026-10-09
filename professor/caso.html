@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Registro | PEC Gestão de Casos
+    </title>
+
+    <link rel="stylesheet" href="../css/base.css">
+
+    <link rel="stylesheet" href="../css/dashboard-professor.css">
+
+    <link rel="stylesheet" href="../css/caso.css">
+
+</head>
+
+
+<body>
+
+    <div class="app-shell">
+
+
+        <!-- =================================================
+             MENU LATERAL
+             ================================================= -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-top">
+
+                <div class="sidebar-brand">
+
+                    <img src="../assets/img/logo-pec-h.png" alt="PEC">
+
+                    <span>
+                        Gestão de Casos
+                    </span>
+
+                </div>
+
+
+                <nav class="sidebar-nav">
+
+                    <button class="nav-item" type="button" id="navInicio">
+
+                        <span class="nav-icon">
+                            ⌂
+                        </span>
+
+                        <span>
+                            Início
+                        </span>
+
+                    </button>
+
+
+                    <button class="nav-item" type="button" id="navNovoCaso">
+
+                        <span class="nav-icon">
+                            ＋
+                        </span>
+
+                        <span>
+                            Nova situação
+                        </span>
+
+                    </button>
+
+
+                    <button class="nav-item active" type="button" id="navMeusRegistros">
+
+                        <span class="nav-icon">
+                            ◫
+                        </span>
+
+                        <span>
+                            Meus registros
+                        </span>
+
+                    </button>
+
+                </nav>
+
+            </div>
+
+
+            <div class="sidebar-footer">
+
+                <div class="sidebar-user">
+
+                    <div class="user-avatar" id="userAvatar">
+                        P
+                    </div>
+
+
+                    <div class="sidebar-user-info">
+
+                        <strong id="sidebarUserName">
+                            Carregando...
+                        </strong>
+
+                        <span id="sidebarUserRole">
+                            Professor
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button type="button" class="logout-button" id="logoutButton">
+                    Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             CONTEÚDO
+             ================================================= -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 CARREGAMENTO
+                 ================================================= -->
+
+            <section class="case-state" id="caseLoading">
+
+                <div class="case-loader"></div>
+
+                <strong>
+                    Carregando registro...
+                </strong>
+
+                <span>
+                    Só um instante.
+                </span>
+
+            </section>
+
+
+            <!-- =================================================
+                 ERRO
+                 ================================================= -->
+
+            <section class="case-state case-error" id="caseError" hidden>
+
+                <div class="case-state-icon">
+                    !
+                </div>
+
+                <strong>
+                    Não foi possível abrir este registro.
+                </strong>
+
+                <span id="caseErrorText">
+                    Verifique se o registro ainda está disponível.
+                </span>
+
+                <button type="button" id="backErrorButton">
+                    Voltar para meus registros
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 CONTEÚDO DO CASO
+                 ================================================= -->
+
+            <div id="caseContent" hidden>
+
+
+                <!-- =================================================
+                     CABEÇALHO
+                     ================================================= -->
+
+                <header class="case-header">
+
+                    <div>
+
+                        <button type="button" class="back-records-button" id="backRecordsButton">
+                            ← Meus registros
+                        </button>
+
+
+                        <div class="case-title-row">
+
+                            <div>
+
+                                <span class="case-eyebrow">
+                                    Registro de situação
+                                </span>
+
+                                <h1 id="caseNumber">
+                                    PEC-2026-0000
+                                </h1>
+
+                            </div>
+
+
+                            <span class="case-status" id="caseStatus">
+                                Em andamento
+                            </span>
+
+                        </div>
+
+
+                        <p class="case-header-description">
+                            Acompanhe as informações registradas e as atualizações disponíveis para este caso.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <!-- =================================================
+                     RESUMO
+                     ================================================= -->
+
+                <section class="case-summary-grid">
+
+
+                    <article class="case-summary-card">
+
+                        <span>
+                            Data do registro
+                        </span>
+
+                        <strong id="caseCreatedAt">
+                            —
+                        </strong>
+
+                    </article>
+
+
+                    <article class="case-summary-card">
+
+                        <span>
+                            Etapa atual
+                        </span>
+
+                        <strong id="caseCurrentStage">
+                            —
+                        </strong>
+
+                    </article>
+
+
+                    <article class="case-summary-card">
+
+                        <span>
+                            Nível de atenção
+                        </span>
+
+                        <strong id="caseAttentionLevel">
+                            Ainda não definido
+                        </strong>
+
+                    </article>
+
+                </section>
+
+
+                <!-- =================================================
+                     ALERTA DE RISCO
+                     ================================================= -->
+
+                <section class="case-risk-alert" id="caseRiskAlert" hidden>
+
+                    <div class="case-risk-icon">
+                        !
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Risco imediato informado no registro inicial
+                        </strong>
+
+                        <p>
+                            A equipe responsável poderá considerar esta informação na priorização do atendimento.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     REGISTRO INICIAL
+                     ================================================= -->
+
+                <section class="case-section">
+
+                    <div class="case-section-heading">
+
+                        <div>
+
+                            <span class="section-kicker">
+                                Registro inicial
+                            </span>
+
+                            <h2>
+                                Informações da situação
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="case-info-grid">
+
+
+                        <div class="case-info-item">
+
+                            <span>
+                                Quando aconteceu
+                            </span>
+
+                            <strong id="caseOccurrenceDate">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-info-item">
+
+                            <span>
+                                Origem da informação
+                            </span>
+
+                            <strong id="caseOrigin">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-info-item">
+
+                            <span>
+                                Ambiente
+                            </span>
+
+                            <strong id="caseEnvironment">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-info-item">
+
+                            <span>
+                                Modalidade
+                            </span>
+
+                            <strong id="caseEnvironmentType">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-info-item">
+
+                            <span>
+                                Evidências relacionadas
+                            </span>
+
+                            <strong id="caseHasEvidence">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-info-item">
+
+                            <span>
+                                Risco imediato
+                            </span>
+
+                            <strong id="caseImmediateRisk">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="case-description">
+
+                        <span>
+                            Relato registrado
+                        </span>
+
+                        <p id="caseDescription">
+                            —
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ENVOLVIDOS
+                     ================================================= -->
+
+                <section class="case-section">
+
+                    <div class="case-section-heading">
+
+                        <div>
+
+                            <span class="section-kicker">
+                                Pessoas envolvidas
+                            </span>
+
+                            <h2>
+                                Participantes informados
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="participants-groups">
+
+
+                        <!-- VÍTIMAS -->
+
+                        <div class="participant-group">
+
+                            <div class="participant-group-title">
+
+                                <span>
+                                    Possível vítima
+                                </span>
+
+                                <strong id="victimsCount">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="case-participants-list" id="victimsList"></div>
+
+                        </div>
+
+
+                        <!-- AUTORES -->
+
+                        <div class="participant-group">
+
+                            <div class="participant-group-title">
+
+                                <span>
+                                    Possível autor
+                                </span>
+
+                                <strong id="authorsCount">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="case-participants-list" id="authorsList"></div>
+
+                        </div>
+
+
+                        <!-- TESTEMUNHAS -->
+
+                        <div class="participant-group participant-group-full">
+
+                            <div class="participant-group-title">
+
+                                <span>
+                                    Testemunhas
+                                </span>
+
+                                <strong id="witnessesCount">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="case-participants-list" id="witnessesList"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="case-role-note">
+
+                        <span>
+                            i
+                        </span>
+
+                        <p>
+                            Os papéis apresentados são os informados no registro inicial e poderão ser revistos pela equipe responsável durante a apuração.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     EVIDÊNCIAS
+                     ================================================= -->
+
+                <section class="case-section">
+
+                    <div class="case-section-heading">
+
+                        <div>
+
+                            <span class="section-kicker">
+                                Evidências
+                            </span>
+
+                            <h2>
+                                Arquivos relacionados
+                            </h2>
+
+                            <p>
+                                Consulte ou adicione materiais relacionados à situação.
+                            </p>
+
+                        </div>
+
+
+                        <button type="button" class="add-evidence-button" id="addEvidenceButton">
+                            + Adicionar evidência
+                        </button>
+
+                    </div>
+
+
+                    <div class="evidence-empty" id="evidenceEmpty">
+
+                        <div class="evidence-empty-icon">
+                            ◫
+                        </div>
+
+                        <strong>
+                            Nenhum arquivo anexado
+                        </strong>
+
+                        <span id="evidenceEmptyText">
+                            Se houver evidências relacionadas,
+                            elas poderão ser adicionadas aqui.
+                        </span>
+
+                    </div>
+
+
+                    <div class="evidence-list" id="evidenceList" hidden></div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ANDAMENTO
+                     ================================================= -->
+
+                <section class="case-section">
+
+                    <div class="case-section-heading">
+
+                        <div>
+
+                            <span class="section-kicker">
+                                Andamento
+                            </span>
+
+                            <h2>
+                                Situação do caso
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="case-timeline" id="caseTimeline"></div>
+
+                </section>
+
+            </div>
+
+            </section>
+
+
+            <!-- =================================================
+                     RODAPÉ
+                     ================================================= -->
+
+            <footer class="page-footer">
+
+                <span>
+                    PEC Gestão de Casos
+                </span>
+
+                <span>
+                    Ambiente institucional protegido
+                </span>
+
+            </footer>
+
+    </div>
+
+    </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVEGAÇÃO MOBILE
+         ===================================================== -->
+
+    <nav class="mobile-nav">
+
+        <button type="button" class="mobile-nav-item" id="mobileHomeButton">
+
+            <span>
+                ⌂
+            </span>
+
+            Início
+
+        </button>
+
+
+        <button type="button" class="mobile-nav-main" id="mobileNewCaseButton">
+
+            <span>
+                +
+            </span>
+
+        </button>
+
+
+        <button type="button" class="mobile-nav-item active" id="mobileRecordsButton">
+
+            <span>
+                ◫
+            </span>
+
+            Registros
+
+        </button>
+
+    </nav>
+
+    <!-- =====================================================
+     MODAL - ADICIONAR EVIDÊNCIA
+     ===================================================== -->
+
+    <div class="evidence-modal" id="evidenceModal" hidden>
+
+        <div class="evidence-modal-backdrop" id="evidenceModalBackdrop"></div>
+
+
+        <div class="evidence-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="evidenceModalTitle">
+
+            <!-- =================================================
+             CABEÇALHO
+             ================================================= -->
+
+            <div class="evidence-modal-header">
+
+                <div>
+
+                    <span class="evidence-modal-kicker">
+                        Evidência do caso
+                    </span>
+
+                    <h2 id="evidenceModalTitle">
+                        Adicionar evidência
+                    </h2>
+
+                    <p>
+                        Anexe um material relacionado à situação. Os arquivos ficarão protegidos e vinculados a este caso.
+                    </p>
+
+                </div>
+
+
+                <button type="button" class="evidence-modal-close" id="closeEvidenceModalButton" aria-label="Fechar">
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+             ETAPA DO DOCUMENTO
+             ================================================= -->
+
+            <div class="evidence-stage-info">
+
+                <span>
+                    Vinculado à etapa
+                </span>
+
+                <strong>
+                    Registro inicial
+                </strong>
+
+            </div>
+
+
+            <!-- =================================================
+             ÁREA PARA SELECIONAR ARQUIVO
+             ================================================= -->
+
+            <div class="evidence-dropzone" id="evidenceDropzone">
+
+                <div class="evidence-dropzone-icon">
+                    +
+                </div>
+
+
+                <strong>
+                    Adicione um arquivo
+                </strong>
+
+
+                <p>
+                    Arraste o arquivo para esta área ou selecione no seu dispositivo.
+                </p>
+
+
+                <button type="button" class="evidence-select-button" id="selectEvidenceButton">
+                    Selecionar arquivo
+                </button>
+
+
+                <input type="file" id="evidenceFileInput" accept=".jpg,.jpeg,.png,.webp,.pdf,.doc,.docx,.mp3,.m4a,.wav,.ogg" hidden>
+
+
+                <span class="evidence-file-help">
+                    Imagens, PDF, documentos ou áudios • até 10 MB
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+             ARQUIVO SELECIONADO
+             ================================================= -->
+
+            <div class="evidence-selected-file" id="evidenceSelectedFile" hidden>
+
+                <div class="evidence-selected-icon" id="evidenceSelectedIcon">
+                    DOC
+                </div>
+
+
+                <div class="evidence-selected-info">
+
+                    <strong id="evidenceSelectedName" title="">
+                        arquivo.pdf
+                    </strong>
+
+                    <span id="evidenceSelectedDetails">
+                        Arquivo selecionado
+                    </span>
+
+                </div>
+
+
+                <button type="button" class="evidence-remove-file" id="removeEvidenceFileButton" aria-label="Remover arquivo">
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+             MENSAGEM DE ERRO
+             ================================================= -->
+
+            <div class="evidence-upload-message" id="evidenceUploadMessage" role="alert" hidden></div>
+
+
+            <!-- =================================================
+             OBSERVAÇÃO
+             ================================================= -->
+
+            <div class="evidence-security-note">
+
+                <span>
+                    i
+                </span>
+
+                <p>
+                    Envie apenas arquivos relacionados ao caso. O acesso será restrito aos usuários autorizados.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+             RODAPÉ
+             ================================================= -->
+
+            <div class="evidence-modal-footer">
+
+                <button type="button" class="evidence-cancel-button" id="cancelEvidenceButton">
+                    Cancelar
+                </button>
+
+
+                <button type="button" class="evidence-upload-button" id="uploadEvidenceButton" disabled>
+
+                    <span id="uploadEvidenceButtonText">
+                        Enviar evidência
+                    </span>
+
+                    <span class="evidence-upload-spinner" id="evidenceUploadSpinner" hidden></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- =====================================================
+     MODAL - REMOVER EVIDÊNCIA
+     ===================================================== -->
+
+    <div class="remove-evidence-modal" id="removeEvidenceModal" hidden>
+
+        <div class="remove-evidence-backdrop" id="removeEvidenceBackdrop"></div>
+
+
+        <div class="remove-evidence-dialog" role="dialog" aria-modal="true" aria-labelledby="removeEvidenceTitle">
+
+            <div class="remove-evidence-icon">
+                !
+            </div>
+
+
+            <div class="remove-evidence-content">
+
+                <h2 id="removeEvidenceTitle">
+                    Remover esta evidência?
+                </h2>
+
+                <p class="remove-evidence-file-name" id="removeEvidenceFileName">
+                    arquivo.png
+                </p>
+
+                <p class="remove-evidence-description">
+                    O arquivo será removido deste caso. O sistema manterá o registro da remoção para fins de auditoria.
+                </p>
+
+            </div>
+
+
+            <div class="remove-evidence-actions">
+
+                <button type="button" class="remove-evidence-cancel" id="cancelRemoveEvidenceButton">
+                    Cancelar
+                </button>
+
+
+                <button type="button" class="remove-evidence-confirm" id="confirmRemoveEvidenceButton">
+                    Remover evidência
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- =====================================================
+         TOAST
+         ===================================================== -->
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+
+        <span class="toast-icon">
+            i
+        </span>
+
+        <span id="toastText"></span>
+
+    </div>
+
+
+    <!-- Supabase -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- Configuração -->
+
+    <script src="../js/config/supabase.js"></script>
+
+
+    <!-- Sessão -->
+
+    <script src="../js/auth/sessao.js"></script>
+
+
+    <!-- Página -->
+
+    <script src="../js/pages/caso.js"></script>
+
+</body>
+
+</html>
